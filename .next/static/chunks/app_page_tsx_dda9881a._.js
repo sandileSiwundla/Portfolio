@@ -68,7 +68,7 @@ const LandingPage = ()=>{
         link.click();
     };
     const handleViewProjects = ()=>{
-        router.push('/Projects/page.tsx');
+        router.push('/Projects');
     };
     const handleViewWebsite = ()=>{
         window.open('https://github.com/SandileSiwundla', '_blank');

@@ -52,7 +52,7 @@ const LandingPage = () => {
   };
 
   const handleViewProjects = () => {
-    router.push('/Projects/page.tsx');
+    router.push('/Projects');
   };
 
   const handleViewWebsite = () => {
