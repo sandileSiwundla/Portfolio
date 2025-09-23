@@ -19,7 +19,7 @@ const LandingPage = () => {
   const orbsRef = useRef<FloatingOrb[]>([]);
   
   const words = ['Developer', 'Researcher', 'Innovator', 'Problem Solver'];
-  const name = "Alex Johnson"; // Replace with your name
+  const name = "Sandile Siwundla"; 
   const bio = "I create elegant solutions to complex problems through code and research. Passionate about pushing boundaries in software engineering and scientific discovery.";
 
   useEffect(() => {
