@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, useRef } from 'react';
 import './LandingPage.css';
 
@@ -20,7 +22,7 @@ const LandingPage = () => {
     '> LOADING DEVELOPER_PROFILE...',
     '> WELCOME TO MY DIGITAL_REALM',
     '> SOFTWARE_ENGINEER || RESEARCHER',
-    '> READY FOR COLLABORATION...'
+    '> READY FOR...'
   ];
 
   useEffect(() => {
@@ -175,7 +177,7 @@ const LandingPage = () => {
                 className="cyber-button secondary"
                 onClick={() => scrollToSection('contact')}
               >
-                [ GET IN TOUCH ]
+                [ WORK ]
               </button>
             </div>
           </div>
