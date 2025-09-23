@@ -19,8 +19,8 @@ const LandingPage = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const orbsRef = useRef<FloatingOrb[]>([]);
   
-  const words = ['Developer', 'Researcher', 'Innovator', 'Problem Solver'];
-  const name = "Alex Johnson";
+  const words = ['Developer', 'Researcher'];
+  const name = "Sandile Siwundla";
   const bio = "I create elegant solutions to complex problems through code and research. Passionate about pushing boundaries in software engineering and scientific discovery.";
 
   useEffect(() => {
@@ -138,7 +138,7 @@ const LandingPage = () => {
             <div className="text-content">
               <h1 className="name">{name}</h1>
               <div className="title-container">
-                <span className="title-prefix">Sandile </span>
+                <span className="title-prefix">/ </span>
                 <span className="typed-title">{typedText}</span>
                 <span className="cursor">|</span>
               </div>
