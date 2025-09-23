@@ -101,17 +101,25 @@ const LandingPage = () => {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/cv/SandileSiwundlaCV.pdf';
-    link.download = `${name.replace(' ', '_')}_CV.pdf`;
+    link.href = '/cv/Sandile_Siwundla_CV.pdf';
+    link.download = 'Sandile_Siwundla_CV.pdf';
     link.click();
   };
 
   const handleViewPapers = () => {
-    window.open('https://scholar.google.com/your-profile', '_blank');
+    window.open('https://scholar.google.com/citations?user=YOUR_PROFILE_ID', '_blank');
+  };
+
+  const handleViewProjects = () => {
+    // Scroll to projects section or navigate to projects page
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleViewWebsite = () => {
-    window.open('https://github.com/yourusername', '_blank');
+    window.open('https://github.com/SandileSiwundla', '_blank');
   };
 
   return (
@@ -150,23 +158,46 @@ const LandingPage = () => {
                   className="minimal-button primary"
                   onClick={handleDownloadCV}
                 >
-                  <span className="button-icon">↓</span>
+                  <span className="button-icon">📄</span>
                   Download CV
                 </button>
                 <button 
                   className="minimal-button secondary"
-                  onClick={handleViewPapers}
+                  onClick={handleViewProjects}
                 >
-                  <span className="button-icon">📄</span>
-                  View Papers
+                  <span className="button-icon">🚀</span>
+                  View Projects
                 </button>
                 <button 
                   className="minimal-button tertiary"
                   onClick={handleViewWebsite}
                 >
-                  <span className="button-icon">🌐</span>
-                  My Websites
+                  <span className="button-icon">💻</span>
+                  GitHub
                 </button>
+              </div>
+
+              {/* Quick project links */}
+              <div className="quick-links">
+                <h3>Featured Projects:</h3>
+                <div className="project-links">
+                  <a 
+                    href="https://africasblockchainclub.vercel.app" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    ABC Website ›
+                  </a>
+                  <a 
+                    href="https://bio-health-chain-4.vercel.app" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    BioHealthChain ›
+                  </a>
+                </div>
               </div>
             </div>
           </div>
