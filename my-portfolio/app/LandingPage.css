@@ -1,13 +1,13 @@
 .landing-page {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-  color: #00ffff;
-  font-family: 'Courier New', monospace;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  color: #2d3748;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: hidden;
 }
 
-.particle-canvas {
+.floating-orbs {
   position: fixed;
   top: 0;
   left: 0;
@@ -16,227 +16,187 @@
   z-index: 0;
 }
 
-.cyber-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: rgba(10, 10, 20, 0.8);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-  border-bottom: 1px solid #00ffff;
-}
-
-.nav-logo .glitch-text {
-  font-size: 1.5rem;
-  font-weight: bold;
-  position: relative;
-  color: #00ffff;
-}
-
-.glitch-text::before,
-.glitch-text::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.glitch-text::before {
-  left: 2px;
-  text-shadow: -2px 0 #ff00ff;
-  clip: rect(44px, 450px, 56px, 0);
-  animation: glitch-anim 5s infinite linear alternate-reverse;
-}
-
-.glitch-text::after {
-  left: -2px;
-  text-shadow: -2px 0 #00ffff;
-  clip: rect(44px, 450px, 56px, 0);
-  animation: glitch-anim2 5s infinite linear alternate-reverse;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.cyber-button {
-  background: transparent;
-  border: 1px solid #00ffff;
-  color: #00ffff;
-  padding: 0.5rem 1rem;
-  font-family: 'Courier New', monospace;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.cyber-button:hover {
-  background: #00ffff;
-  color: #0a0a0a;
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-}
-
-.cyber-button.primary {
-  background: #00ffff;
-  color: #0a0a0a;
-  font-weight: bold;
-}
-
-.cyber-button.secondary {
-  border-color: #ff00ff;
-  color: #ff00ff;
-}
-
-.cyber-button.secondary:hover {
-  background: #ff00ff;
-  color: #0a0a0a;
-}
-
 .main-content {
   position: relative;
   z-index: 1;
-  padding-top: 80px;
-}
-
-.hero-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   min-height: 100vh;
-  align-items: center;
-  padding: 0 2rem;
-  gap: 2rem;
-}
-
-.terminal-window {
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid #00ffff;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
-}
-
-.terminal-header {
-  background: #1a1a2e;
-  padding: 0.5rem 1rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #00ffff;
 }
 
-.terminal-buttons {
-  display: flex;
-  gap: 0.5rem;
+.content-wrapper {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
 }
 
-.terminal-button {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.terminal-button.close {
-  background: #ff5f56;
-}
-
-.terminal-button.minimize {
-  background: #ffbd2e;
-}
-
-.terminal-button.maximize {
-  background: #27ca3f;
-}
-
-.terminal-body {
+.profile-section {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4rem;
+  align-items: center;
   padding: 2rem;
-  min-height: 200px;
 }
 
-.typewriter-text {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #00ff00;
+.profile-image-container {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.5);
+  position: relative;
+  z-index: 2;
+}
+
+.image-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  opacity: 0.1;
+  filter: blur(20px);
+  z-index: 1;
+}
+
+.text-content {
+  max-width: 600px;
+}
+
+.name {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.title-container {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #667eea;
+  font-weight: 500;
+}
+
+.title-prefix {
+  color: #a0aec0;
+}
+
+.typed-title {
+  font-weight: 600;
 }
 
 .cursor {
   animation: blink 1s infinite;
+  color: #667eea;
 }
 
-.hero-content {
-  text-align: center;
-}
-
-.cyber-title {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-}
-
-.title-glitch {
-  display: block;
-  position: relative;
-  color: #00ffff;
-}
-
-.title-glitch:nth-child(odd) {
-  color: #ff00ff;
-}
-
-.title-glitch::before {
-  content: attr(data-text);
-  position: absolute;
-  left: -2px;
-  text-shadow: 2px 0 #00ffff;
-  clip: rect(0, 900px, 0, 0);
-  animation: noise-anim 2s infinite linear alternate-reverse;
-}
-
-.title-glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 2px;
-  text-shadow: -2px 0 #ff00ff;
-  clip: rect(0, 900px, 0, 0);
-  animation: noise-anim2 3s infinite linear alternate-reverse;
-}
-
-.cyber-subtitle {
+.bio {
   font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: #cccccc;
+  line-height: 1.6;
+  color: #4a5568;
+  margin-bottom: 3rem;
+  font-weight: 400;
 }
 
-.cta-buttons {
+.action-buttons {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.scanline {
+.minimal-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border: 2px solid;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.minimal-button.primary {
+  border-color: #667eea;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.minimal-button.primary:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.minimal-button.secondary {
+  border-color: #ed8936;
+  color: #ed8936;
+  background: rgba(237, 137, 54, 0.1);
+}
+
+.minimal-button.secondary:hover {
+  background: #ed8936;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(237, 137, 54, 0.3);
+}
+
+.minimal-button.tertiary {
+  border-color: #38a169;
+  color: #38a169;
+  background: rgba(56, 161, 105, 0.1);
+}
+
+.minimal-button.tertiary:hover {
+  background: #38a169;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(56, 161, 105, 0.3);
+}
+
+.button-icon {
+  font-size: 1.2rem;
+}
+
+.scroll-indicator {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent 50%,
-    rgba(0, 255, 255, 0.03) 51%
-  );
-  background-size: 100% 4px;
-  pointer-events: none;
-  animation: scanline 10s linear infinite;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #a0aec0;
+  font-size: 0.9rem;
+  animation: float 2s ease-in-out infinite;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, #a0aec0, transparent);
 }
 
 @keyframes blink {
@@ -244,125 +204,59 @@
   51%, 100% { opacity: 0; }
 }
 
-@keyframes glitch-anim {
-  0% { clip: rect(42px, 9999px, 44px, 0); }
-  5% { clip: rect(12px, 9999px, 59px, 0); }
-  10% { clip: rect(48px, 9999px, 29px, 0); }
-  15% { clip: rect(42px, 9999px, 73px, 0); }
-  20% { clip: rect(63px, 9999px, 27px, 0); }
-  25% { clip: rect(34px, 9999px, 55px, 0); }
-  30% { clip: rect(86px, 9999px, 73px, 0); }
-  35% { clip: rect(20px, 9999px, 20px, 0); }
-  40% { clip: rect(26px, 9999px, 60px, 0); }
-  45% { clip: rect(25px, 9999px, 66px, 0); }
-  50% { clip: rect(57px, 9999px, 98px, 0); }
-  55% { clip: rect(5px, 9999px, 46px, 0); }
-  60% { clip: rect(82px, 9999px, 31px, 0); }
-  65% { clip: rect(54px, 9999px, 27px, 0); }
-  70% { clip: rect(28px, 9999px, 99px, 0); }
-  75% { clip: rect(45px, 9999px, 69px, 0); }
-  80% { clip: rect(23px, 9999px, 85px, 0); }
-  85% { clip: rect(54px, 9999px, 84px, 0); }
-  90% { clip: rect(45px, 9999px, 47px, 0); }
-  95% { clip: rect(37px, 9999px, 20px, 0); }
-  100% { clip: rect(4px, 9999px, 91px, 0); }
-}
-
-@keyframes glitch-anim2 {
-  0% { clip: rect(65px, 9999px, 100px, 0); }
-  5% { clip: rect(52px, 9999px, 74px, 0); }
-  10% { clip: rect(79px, 9999px, 85px, 0); }
-  15% { clip: rect(75px, 9999px, 5px, 0); }
-  20% { clip: rect(67px, 9999px, 61px, 0); }
-  25% { clip: rect(14px, 9999px, 79px, 0); }
-  30% { clip: rect(1px, 9999px, 66px, 0); }
-  35% { clip: rect(86px, 9999px, 30px, 0); }
-  40% { clip: rect(23px, 9999px, 98px, 0); }
-  45% { clip: rect(85px, 9999px, 72px, 0); }
-  50% { clip: rect(71px, 9999px, 75px, 0); }
-  55% { clip: rect(2px, 9999px, 48px, 0); }
-  60% { clip: rect(30px, 9999px, 16px, 0); }
-  65% { clip: rect(59px, 9999px, 50px, 0); }
-  70% { clip: rect(41px, 9999px, 62px, 0); }
-  75% { clip: rect(2px, 9999px, 82px, 0); }
-  80% { clip: rect(47px, 9999px, 73px, 0); }
-  85% { clip: rect(3px, 9999px, 27px, 0); }
-  90% { clip: rect(26px, 9999px, 55px, 0); }
-  95% { clip: rect(42px, 9999px, 97px, 0); }
-  100% { clip: rect(38px, 9999px, 49px, 0); }
-}
-
-@keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
-}
-
-@keyframes noise-anim {
-  0% { clip: rect(0, 9999px, 0, 0); }
-  5% { clip: rect(0, 9999px, 50px, 0); }
-  10% { clip: rect(0, 9999px, 20px, 0); }
-  15% { clip: rect(0, 9999px, 80px, 0); }
-  20% { clip: rect(0, 9999px, 30px, 0); }
-  25% { clip: rect(0, 9999px, 60px, 0); }
-  30% { clip: rect(0, 9999px, 40px, 0); }
-  35% { clip: rect(0, 9999px, 70px, 0); }
-  40% { clip: rect(0, 9999px, 25px, 0); }
-  45% { clip: rect(0, 9999px, 55px, 0); }
-  50% { clip: rect(0, 9999px, 35px, 0); }
-  55% { clip: rect(0, 9999px, 65px, 0); }
-  60% { clip: rect(0, 9999px, 45px, 0); }
-  65% { clip: rect(0, 9999px, 75px, 0); }
-  70% { clip: rect(0, 9999px, 15px, 0); }
-  75% { clip: rect(0, 9999px, 85px, 0); }
-  80% { clip: rect(0, 9999px, 10px, 0); }
-  85% { clip: rect(0, 9999px, 90px, 0); }
-  90% { clip: rect(0, 9999px, 5px, 0); }
-  95% { clip: rect(0, 9999px, 95px, 0); }
-  100% { clip: rect(0, 9999px, 100px, 0); }
-}
-
-@keyframes noise-anim2 {
-  0% { clip: rect(0, 9999px, 100px, 0); }
-  5% { clip: rect(0, 9999px, 50px, 0); }
-  10% { clip: rect(0, 9999px, 80px, 0); }
-  15% { clip: rect(0, 9999px, 20px, 0); }
-  20% { clip: rect(0, 9999px, 70px, 0); }
-  25% { clip: rect(0, 9999px, 30px, 0); }
-  30% { clip: rect(0, 9999px, 60px, 0); }
-  35% { clip: rect(0, 9999px, 40px, 0); }
-  40% { clip: rect(0, 9999px, 90px, 0); }
-  45% { clip: rect(0, 9999px, 10px, 0); }
-  50% { clip: rect(0, 9999px, 85px, 0); }
-  55% { clip: rect(0, 9999px, 15px, 0); }
-  60% { clip: rect(0, 9999px, 75px, 0); }
-  65% { clip: rect(0, 9999px, 25px, 0); }
-  70% { clip: rect(0, 9999px, 65px, 0); }
-  75% { clip: rect(0, 9999px, 35px, 0); }
-  80% { clip: rect(0, 9999px, 55px, 0); }
-  85% { clip: rect(0, 9999px, 45px, 0); }
-  90% { clip: rect(0, 9999px, 95px, 0); }
-  95% { clip: rect(0, 9999px, 5px, 0); }
-  100% { clip: rect(0, 9999px, 100px, 0); }
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
-  .hero-section {
+@media (max-width: 968px) {
+  .profile-section {
     grid-template-columns: 1fr;
+    gap: 3rem;
     text-align: center;
   }
   
-  .cyber-title {
-    font-size: 2.5rem;
+  .profile-image-container {
+    margin: 0 auto;
+    width: 240px;
+    height: 240px;
   }
   
-  .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
+  .name {
+    font-size: 2.8rem;
   }
   
-  .cta-buttons {
+  .action-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .profile-section {
+    padding: 1rem;
+  }
+  
+  .name {
+    font-size: 2.2rem;
+  }
+  
+  .title-container {
+    font-size: 1.2rem;
+  }
+  
+  .bio {
+    font-size: 1.1rem;
+  }
+  
+  .action-buttons {
     flex-direction: column;
     align-items: center;
+  }
+  
+  .minimal-button {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
   }
 }

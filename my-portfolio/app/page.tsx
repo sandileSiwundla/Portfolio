@@ -136,7 +136,7 @@ const LandingPage = () => {
             <div className="text-content">
               <h1 className="name">{name}</h1>
               <div className="title-container">
-                <span className="title-prefix">// </span>
+                <span className="title-prefix">/ </span>
                 <span className="typed-title">{typedText}</span>
                 <span className="cursor">|</span>
               </div>
