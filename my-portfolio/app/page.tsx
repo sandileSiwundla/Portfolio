@@ -128,7 +128,7 @@ const LandingPage = () => {
           <div className="profile-section">
             <div className="profile-image-container">
               <img 
-                src="/path/to/your/profile-picture.jpg" // Replace with your image path
+                src="/path/to/your/profile-picture.jpg"
                 alt={name}
                 className="profile-image"
               />
