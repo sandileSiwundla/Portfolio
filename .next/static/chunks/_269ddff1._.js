@@ -312,77 +312,6 @@ function ProjectsPage() {
                         fileName: "[project]/app/Projects/page.tsx",
                         lineNumber: 110,
                         columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        style: {
-                            textAlign: 'center',
-                            padding: '3rem',
-                            background: 'rgba(102, 126, 234, 0.05)',
-                            borderRadius: '12px',
-                            border: '1px solid rgba(102, 126, 234, 0.1)'
-                        },
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                style: {
-                                    fontSize: '1.5rem',
-                                    color: '#2d3748',
-                                    marginBottom: '1rem'
-                                },
-                                children: "Interested in collaborating?"
-                            }, void 0, false, {
-                                fileName: "[project]/app/Projects/page.tsx",
-                                lineNumber: 228,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                style: {
-                                    color: '#4a5568',
-                                    marginBottom: '2rem',
-                                    maxWidth: '500px',
-                                    margin: '0 auto 2rem'
-                                },
-                                children: "I'm always open to discussing new opportunities and interesting projects."
-                            }, void 0, false, {
-                                fileName: "[project]/app/Projects/page.tsx",
-                                lineNumber: 235,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/",
-                                style: {
-                                    display: 'inline-flex',
-                                    alignItems: 'center',
-                                    gap: '0.5rem',
-                                    padding: '1rem 2rem',
-                                    border: '2px solid #667eea',
-                                    background: 'rgba(102, 126, 234, 0.1)',
-                                    color: '#667eea',
-                                    textDecoration: 'none',
-                                    fontWeight: '600',
-                                    borderRadius: '8px',
-                                    transition: 'all 0.3s ease'
-                                },
-                                onMouseEnter: (e)=>{
-                                    e.currentTarget.style.background = '#667eea';
-                                    e.currentTarget.style.color = 'white';
-                                    e.currentTarget.style.transform = 'translateY(-2px)';
-                                },
-                                onMouseLeave: (e)=>{
-                                    e.currentTarget.style.background = 'rgba(102, 126, 234, 0.1)';
-                                    e.currentTarget.style.color = '#667eea';
-                                    e.currentTarget.style.transform = 'translateY(0)';
-                                },
-                                children: "Get In Touch"
-                            }, void 0, false, {
-                                fileName: "[project]/app/Projects/page.tsx",
-                                lineNumber: 243,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/Projects/page.tsx",
-                        lineNumber: 221,
-                        columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
@@ -409,12 +338,12 @@ function ProjectsPage() {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/Projects/page.tsx",
-                    lineNumber: 280,
+                    lineNumber: 230,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/Projects/page.tsx",
-                lineNumber: 273,
+                lineNumber: 223,
                 columnNumber: 7
             }, this)
         ]

@@ -217,56 +217,6 @@ export default function ProjectsPage() {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div style={{
-          textAlign: 'center',
-          padding: '3rem',
-          background: 'rgba(102, 126, 234, 0.05)',
-          borderRadius: '12px',
-          border: '1px solid rgba(102, 126, 234, 0.1)'
-        }}>
-          <h3 style={{
-            fontSize: '1.5rem',
-            color: '#2d3748',
-            marginBottom: '1rem'
-          }}>
-            Interested in collaborating?
-          </h3>
-          <p style={{
-            color: '#4a5568',
-            marginBottom: '2rem',
-            maxWidth: '500px',
-            margin: '0 auto 2rem'
-          }}>
-            I'm always open to discussing new opportunities and interesting projects.
-          </p>
-          <Link href="/" style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            padding: '1rem 2rem',
-            border: '2px solid #667eea',
-            background: 'rgba(102, 126, 234, 0.1)',
-            color: '#667eea',
-            textDecoration: 'none',
-            fontWeight: '600',
-            borderRadius: '8px',
-            transition: 'all 0.3s ease'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = '#667eea';
-            e.currentTarget.style.color = 'white';
-            e.currentTarget.style.transform = 'translateY(-2px)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = 'rgba(102, 126, 234, 0.1)';
-            e.currentTarget.style.color = '#667eea';
-            e.currentTarget.style.transform = 'translateY(0)';
-          }}
-          >
-            Get In Touch
-          </Link>
-        </div>
       </div>
 
       {/* Footer */}
