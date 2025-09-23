@@ -1,6 +1,5 @@
-'use client';
-
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import './LandingPage.css';
 
 interface FloatingOrb {
@@ -19,7 +18,7 @@ const LandingPage = () => {
   const orbsRef = useRef<FloatingOrb[]>([]);
   
   const words = ['Developer', 'Researcher', 'Innovator', 'Problem Solver'];
-  const name = "Sandile Siwundla"; 
+  const name = "Alex Johnson";
   const bio = "I create elegant solutions to complex problems through code and research. Passionate about pushing boundaries in software engineering and scientific discovery.";
 
   useEffect(() => {
@@ -53,7 +52,6 @@ const LandingPage = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Initialize floating orbs
     const initOrbs = () => {
       orbsRef.current = [];
       const orbCount = Math.min(15, Math.floor(canvas.width * canvas.height / 50000));
@@ -80,11 +78,9 @@ const LandingPage = () => {
         orb.x += orb.speedX;
         orb.y += orb.speedY;
 
-        // Bounce off edges
         if (orb.x > canvas.width || orb.x < 0) orb.speedX *= -1;
         if (orb.y > canvas.height || orb.y < 0) orb.speedY *= -1;
 
-        // Draw orb
         ctx.beginPath();
         ctx.arc(orb.x, orb.y, orb.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(100, 100, 255, ${orb.opacity})`;
@@ -102,20 +98,17 @@ const LandingPage = () => {
   }, []);
 
   const handleDownloadCV = () => {
-    // Replace with your actual CV file path
     const link = document.createElement('a');
-    link.href = '/path/to/your/cv.pdf';
+    link.href = '/cv/alex_johnson_cv.pdf';
     link.download = `${name.replace(' ', '_')}_CV.pdf`;
     link.click();
   };
 
   const handleViewPapers = () => {
-    // Replace with your papers link
     window.open('https://scholar.google.com/your-profile', '_blank');
   };
 
   const handleViewWebsite = () => {
-    // Replace with your website/github link
     window.open('https://github.com/yourusername', '_blank');
   };
 
@@ -127,10 +120,15 @@ const LandingPage = () => {
         <div className="content-wrapper">
           <div className="profile-section">
             <div className="profile-image-container">
-              <img 
-                src="/path/to/your/profile-picture.jpg"
-                alt={name}
+              <Image 
+                src="/images/profile.jpg" // Path in public folder
+                alt={`Profile picture of ${name}`}
+                width={280}
+                height={280}
                 className="profile-image"
+                priority // Important for LCP - loads image immediately
+                placeholder="blur" // Optional: add blur placeholder
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaUMk6objMpSlKKEgghI//Z"
               />
               <div className="image-glow"></div>
             </div>
@@ -138,7 +136,7 @@ const LandingPage = () => {
             <div className="text-content">
               <h1 className="name">{name}</h1>
               <div className="title-container">
-                <span className="title-prefix">/ </span>
+                <span className="title-prefix">Sandile </span>
                 <span className="typed-title">{typedText}</span>
                 <span className="cursor">|</span>
               </div>
