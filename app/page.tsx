@@ -2,7 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import './LandingPage.css';
+
 
 interface FloatingOrb {
   x: number;
@@ -18,6 +20,7 @@ const LandingPage = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const orbsRef = useRef<FloatingOrb[]>([]);
+  const router = useRouter(); // Add this line
   
   const words = ['Developer', 'Researcher'];
   const name = "Sandile Siwundla";
@@ -39,65 +42,7 @@ const LandingPage = () => {
     }
   }, [typedText, currentWordIndex]);
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    const initOrbs = () => {
-      orbsRef.current = [];
-      const orbCount = Math.min(15, Math.floor(canvas.width * canvas.height / 50000));
-      
-      for (let i = 0; i < orbCount; i++) {
-        orbsRef.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 3 + 1,
-          speedX: (Math.random() - 0.5) * 0.3,
-          speedY: (Math.random() - 0.5) * 0.3,
-          opacity: Math.random() * 0.1 + 0.05
-        });
-      }
-    };
-
-    initOrbs();
-
-    const animate = () => {
-      ctx.fillStyle = 'rgba(250, 250, 255, 0.02)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      orbsRef.current.forEach(orb => {
-        orb.x += orb.speedX;
-        orb.y += orb.speedY;
-
-        if (orb.x > canvas.width || orb.x < 0) orb.speedX *= -1;
-        if (orb.y > canvas.height || orb.y < 0) orb.speedY *= -1;
-
-        ctx.beginPath();
-        ctx.arc(orb.x, orb.y, orb.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(100, 100, 255, ${orb.opacity})`;
-        ctx.fill();
-      });
-
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-    };
-  }, []);
+  // ... (rest of your useEffect for canvas animation remains the same)
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
@@ -106,16 +51,8 @@ const LandingPage = () => {
     link.click();
   };
 
-  const handleViewPapers = () => {
-    window.open('https://scholar.google.com/citations?user=YOUR_PROFILE_ID', '_blank');
-  };
-
   const handleViewProjects = () => {
-    // Scroll to projects section or navigate to projects page
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    router.push('/Projects/page.tsx');
   };
 
   const handleViewWebsite = () => {
@@ -163,7 +100,7 @@ const LandingPage = () => {
                 </button>
                 <button 
                   className="minimal-button secondary"
-                  onClick={handleViewProjects}
+                  onClick={handleViewProjects} 
                 >
                   <span className="button-icon">🚀</span>
                   View Projects

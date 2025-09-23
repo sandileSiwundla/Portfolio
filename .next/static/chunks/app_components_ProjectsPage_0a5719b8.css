@@ -1,0 +1,209 @@
+/* [project]/app/components/ProjectsPage.css [app-client] (css) */
+.projects-page {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.projects-title {
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.projects-subtitle {
+  color: #4a5568;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.filters {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  display: flex;
+}
+
+.filter-btn {
+  color: #4a5568;
+  cursor: pointer;
+  background: none;
+  border: 2px solid #cbd5e0;
+  border-radius: 8px;
+  padding: .75rem 1.5rem;
+  font-weight: 600;
+  transition: all .3s;
+}
+
+.filter-btn:hover {
+  color: #667eea;
+  border-color: #667eea;
+}
+
+.filter-btn.active {
+  color: #fff;
+  background: #667eea;
+  border-color: #667eea;
+}
+
+.projects-grid {
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  display: grid;
+}
+
+.project-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all .3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .05), 0 1px 3px rgba(0, 0, 0, .1);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .1), 0 0 0 1px rgba(102, 126, 234, .1);
+}
+
+.project-header {
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.project-title {
+  color: #2d3748;
+  flex: 1;
+  margin: 0 1rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.status-badge {
+  white-space: nowrap;
+  border-radius: 20px;
+  padding: .25rem .75rem;
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.project-description {
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.technologies {
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+}
+
+.tech-tag {
+  color: #667eea;
+  background: rgba(102, 126, 234, .1);
+  border: 1px solid rgba(102, 126, 234, .2);
+  border-radius: 20px;
+  padding: .25rem .75rem;
+  font-size: .8rem;
+  font-weight: 500;
+}
+
+.project-actions {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.project-link {
+  color: #667eea;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .3s;
+  display: flex;
+}
+
+.project-link:hover {
+  color: #5a67d8;
+  gap: .75rem;
+}
+
+.no-projects {
+  text-align: center;
+  color: #718096;
+  padding: 3rem;
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 0 1rem;
+  }
+
+  .projects-title {
+    font-size: 2.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5rem;
+  }
+
+  .project-title {
+    margin-right: 0;
+  }
+
+  .filters {
+    justify-content: flex-start;
+    padding-bottom: .5rem;
+    overflow-x: auto;
+  }
+
+  .filter-btn {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-title {
+    font-size: 2rem;
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+}
+
+/*# sourceMappingURL=app_components_ProjectsPage_0a5719b8.css.map*/

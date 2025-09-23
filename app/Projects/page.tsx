@@ -1,5 +1,7 @@
+'use client';
+
 import { useState } from 'react';
-import './ProjectsPage.css';
+import '../components/ProjectsPage.css';
 
 interface Project {
   id: number;
