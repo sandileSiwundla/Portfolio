@@ -101,7 +101,7 @@ const LandingPage = () => {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/cv/alex_johnson_cv.pdf';
+    link.href = '/cv/SandileSiwundlaCV.pdf';
     link.download = `${name.replace(' ', '_')}_CV.pdf`;
     link.click();
   };
@@ -123,13 +123,13 @@ const LandingPage = () => {
           <div className="profile-section">
             <div className="profile-image-container">
               <Image 
-                src="/images/profile.jpg" // Path in public folder
+                src="/sandile.jpeg" 
                 alt={`Profile picture of ${name}`}
                 width={280}
                 height={280}
                 className="profile-image"
-                priority // Important for LCP - loads image immediately
-                placeholder="blur" // Optional: add blur placeholder
+                priority 
+                placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaUMk6objMpSlKKEgghI//Z"
               />
               <div className="image-glow"></div>
