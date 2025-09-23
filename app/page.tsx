@@ -46,8 +46,8 @@ const LandingPage = () => {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/cv/Sandile_Siwundla_CV.pdf';
-    link.download = 'Sandile_Siwundla_CV.pdf';
+    link.href = '/cv/SandileSiwundlaCV.pdf';
+    link.download = 'SandileSiwundlaCV.pdf';
     link.click();
   };
 

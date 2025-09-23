@@ -73,8 +73,8 @@ const LandingPage = ()=>{
     // ... (rest of your useEffect for canvas animation remains the same)
     const handleDownloadCV = ()=>{
         const link = document.createElement('a');
-        link.href = '/cv/Sandile_Siwundla_CV.pdf';
-        link.download = 'Sandile_Siwundla_CV.pdf';
+        link.href = '/cv/SandileSiwundlaCV.pdf';
+        link.download = 'SandileSiwundlaCV.pdf';
         link.click();
     };
     const handleViewProjects = ()=>{
