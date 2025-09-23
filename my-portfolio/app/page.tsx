@@ -1,42 +1,40 @@
-'use client';
-
 import { useState, useEffect, useRef } from 'react';
 import './LandingPage.css';
 
-interface Particle {
+interface FloatingOrb {
   x: number;
   y: number;
   size: number;
   speedX: number;
   speedY: number;
+  opacity: number;
 }
 
 const LandingPage = () => {
-  const [displayText, setDisplayText] = useState('');
-  const [currentLine, setCurrentLine] = useState(0);
+  const [typedText, setTypedText] = useState('');
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const particlesRef = useRef<Particle[]>([]);
+  const orbsRef = useRef<FloatingOrb[]>([]);
   
-  const fullText = [
-    '> INITIALIZING PORTFOLIO_SYSTEM...',
-    '> LOADING DEVELOPER_PROFILE...',
-    '> WELCOME TO MY DIGITAL_REALM',
-    '> SOFTWARE_ENGINEER || RESEARCHER',
-    '> READY FOR...'
-  ];
+  const words = ['Developer', 'Researcher', 'Innovator', 'Problem Solver'];
+  const name = "Alex Johnson"; // Replace with your name
+  const bio = "I create elegant solutions to complex problems through code and research. Passionate about pushing boundaries in software engineering and scientific discovery.";
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (displayText.length < fullText[currentLine].length) {
-        setDisplayText(fullText[currentLine].slice(0, displayText.length + 1));
-      } else if (currentLine < fullText.length - 1) {
-        setCurrentLine(currentLine + 1);
-        setDisplayText('');
-      }
-    }, 50);
-
-    return () => clearTimeout(timer);
-  }, [displayText, currentLine]);
+    const currentWord = words[currentWordIndex];
+    if (typedText.length < currentWord.length) {
+      const timer = setTimeout(() => {
+        setTypedText(currentWord.slice(0, typedText.length + 1));
+      }, 100);
+      return () => clearTimeout(timer);
+    } else {
+      const timer = setTimeout(() => {
+        setTypedText('');
+        setCurrentWordIndex((prev) => (prev + 1) % words.length);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [typedText, currentWordIndex]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -53,57 +51,42 @@ const LandingPage = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Initialize particles
-    const initParticles = () => {
-      particlesRef.current = [];
-      const particleCount = Math.min(100, Math.floor(canvas.width * canvas.height / 10000));
+    // Initialize floating orbs
+    const initOrbs = () => {
+      orbsRef.current = [];
+      const orbCount = Math.min(15, Math.floor(canvas.width * canvas.height / 50000));
       
-      for (let i = 0; i < particleCount; i++) {
-        particlesRef.current.push({
+      for (let i = 0; i < orbCount; i++) {
+        orbsRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 2 + 0.5,
-          speedX: (Math.random() - 0.5) * 0.5,
-          speedY: (Math.random() - 0.5) * 0.5
+          size: Math.random() * 3 + 1,
+          speedX: (Math.random() - 0.5) * 0.3,
+          speedY: (Math.random() - 0.5) * 0.3,
+          opacity: Math.random() * 0.1 + 0.05
         });
       }
     };
 
-    initParticles();
+    initOrbs();
 
     const animate = () => {
-      ctx.fillStyle = 'rgba(10, 10, 20, 0.05)';
+      ctx.fillStyle = 'rgba(250, 250, 255, 0.02)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      particlesRef.current.forEach((particle, index) => {
-        particle.x += particle.speedX;
-        particle.y += particle.speedY;
+      orbsRef.current.forEach(orb => {
+        orb.x += orb.speedX;
+        orb.y += orb.speedY;
 
-        if (particle.x > canvas.width) particle.x = 0;
-        if (particle.x < 0) particle.x = canvas.width;
-        if (particle.y > canvas.height) particle.y = 0;
-        if (particle.y < 0) particle.y = canvas.height;
+        // Bounce off edges
+        if (orb.x > canvas.width || orb.x < 0) orb.speedX *= -1;
+        if (orb.y > canvas.height || orb.y < 0) orb.speedY *= -1;
 
+        // Draw orb
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 255, 255, ${particle.size / 3})`;
+        ctx.arc(orb.x, orb.y, orb.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(100, 100, 255, ${orb.opacity})`;
         ctx.fill();
-
-        // Connect nearby particles
-        for (let j = index + 1; j < particlesRef.current.length; j++) {
-          const dx = particle.x - particlesRef.current[j].x;
-          const dy = particle.y - particlesRef.current[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < 100) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 255, 255, ${0.1 * (1 - distance / 100)})`;
-            ctx.lineWidth = 0.5;
-            ctx.moveTo(particle.x, particle.y);
-            ctx.lineTo(particlesRef.current[j].x, particlesRef.current[j].y);
-            ctx.stroke();
-          }
-        }
       });
 
       requestAnimationFrame(animate);
@@ -116,74 +99,81 @@ const LandingPage = () => {
     };
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  const handleDownloadCV = () => {
+    // Replace with your actual CV file path
+    const link = document.createElement('a');
+    link.href = '/path/to/your/cv.pdf';
+    link.download = `${name.replace(' ', '_')}_CV.pdf`;
+    link.click();
+  };
+
+  const handleViewPapers = () => {
+    // Replace with your papers link
+    window.open('https://scholar.google.com/your-profile', '_blank');
+  };
+
+  const handleViewWebsite = () => {
+    // Replace with your website/github link
+    window.open('https://github.com/yourusername', '_blank');
   };
 
   return (
     <div className="landing-page">
-      <canvas ref={canvasRef} className="particle-canvas" />
+      <canvas ref={canvasRef} className="floating-orbs" />
       
-      <nav className="cyber-nav">
-        <div className="nav-logo">
-          <span className="glitch-text" data-text="DEV_PORTFOLIO">DEV_PORTFOLIO</span>
-        </div>
-        <div className="nav-links">
-          <button onClick={() => scrollToSection('about')} className="cyber-button">[ ABOUT ]</button>
-          <button onClick={() => scrollToSection('projects')} className="cyber-button">[ PROJECTS ]</button>
-          <button onClick={() => scrollToSection('research')} className="cyber-button">[ RESEARCH ]</button>
-          <button onClick={() => scrollToSection('contact')} className="cyber-button">[ CONTACT ]</button>
-        </div>
-      </nav>
-
       <main className="main-content">
-        <section className="hero-section">
-          <div className="terminal-window">
-            <div className="terminal-header">
-              <div className="terminal-buttons">
-                <span className="terminal-button close"></span>
-                <span className="terminal-button minimize"></span>
-                <span className="terminal-button maximize"></span>
-              </div>
-              <span className="terminal-title">terminal@portfolio:~</span>
+        <div className="content-wrapper">
+          <div className="profile-section">
+            <div className="profile-image-container">
+              <img 
+                src="/path/to/your/profile-picture.jpg" // Replace with your image path
+                alt={name}
+                className="profile-image"
+              />
+              <div className="image-glow"></div>
             </div>
-            <div className="terminal-body">
-              <div className="typewriter-text">
-                {displayText}
-                <span className="cursor">▊</span>
+            
+            <div className="text-content">
+              <h1 className="name">{name}</h1>
+              <div className="title-container">
+                <span className="title-prefix">// </span>
+                <span className="typed-title">{typedText}</span>
+                <span className="cursor">|</span>
+              </div>
+              
+              <p className="bio">{bio}</p>
+              
+              <div className="action-buttons">
+                <button 
+                  className="minimal-button primary"
+                  onClick={handleDownloadCV}
+                >
+                  <span className="button-icon">↓</span>
+                  Download CV
+                </button>
+                <button 
+                  className="minimal-button secondary"
+                  onClick={handleViewPapers}
+                >
+                  <span className="button-icon">📄</span>
+                  View Papers
+                </button>
+                <button 
+                  className="minimal-button tertiary"
+                  onClick={handleViewWebsite}
+                >
+                  <span className="button-icon">🌐</span>
+                  My Websites
+                </button>
               </div>
             </div>
           </div>
-
-          <div className="hero-content">
-            <h1 className="cyber-title">
-              <span className="title-glitch" data-text="INNOVATE">INNOVATE</span>
-              <span className="title-glitch" data-text="DEVELOP">DEVELOP</span>
-              <span className="title-glitch" data-text="RESEARCH">RESEARCH</span>
-            </h1>
-            
-            <p className="cyber-subtitle">
-              Pushing the boundaries of software engineering and research
-            </p>
-            
-            <div className="cta-buttons">
-              <button 
-                className="cyber-button primary"
-                onClick={() => scrollToSection('projects')}
-              >
-                [ VIEW MY WORK ]
-              </button>
-              <button 
-                className="cyber-button secondary"
-                onClick={() => scrollToSection('contact')}
-              >
-                [ WORK ]
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <div className="scanline"></div>
+        </div>
+        
+        <div className="scroll-indicator">
+          <span>Scroll to explore</span>
+          <div className="scroll-line"></div>
+        </div>
       </main>
     </div>
   );
