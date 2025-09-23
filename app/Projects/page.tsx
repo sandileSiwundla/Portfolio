@@ -1,146 +1,49 @@
 'use client';
 
-import { useState } from 'react';
-import '../components/ProjectsPage.css';
+import Link from 'next/link';
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  technologies: string[];
-  status: 'Live' | 'Beta' | 'Development';
-  link: string;
-  category: 'web' | 'blockchain' | 'research';
-}
-
-const ProjectsPage = () => {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'web' | 'blockchain' | 'research'>('all');
-
-  const projects: Project[] = [
+export default function ProjectsPage() {
+  const projects = [
     {
-      id: 1,
       title: "ABC Website",
-      description: "A sleek, interactive platform showcasing research papers, software prototypes, and blockchain initiatives. Built with a focus on user experience and responsive design, ABC Website allows users to explore projects seamlessly while maintaining high performance and accessibility.",
-      technologies: ["React", "Next.js", "Tailwind CSS", "IPFS integration"],
-      status: "Live",
+      description: "A sleek, interactive platform showcasing research papers and blockchain initiatives.",
       link: "https://africasblockchainclub.vercel.app",
-      category: "web"
+      technologies: ["React", "Next.js", "Tailwind CSS"]
     },
     {
-      id: 2,
-      title: "BioHealthChain (Beta)",
-      description: "A blockchain-based healthcare data platform that allows secure, on-chain storage and management of medical information. BioHealthChain emphasizes privacy, accessibility, and data integrity, giving users and healthcare providers a transparent and reliable solution for patient data management.",
-      technologies: ["Next.js", "TypeScript", "Ethereum", "IPFS"],
-      status: "Beta",
+      title: "BioHealthChain",
+      description: "Blockchain-based healthcare data platform for secure medical information management.",
       link: "https://bio-health-chain-4.vercel.app",
-      category: "blockchain"
+      technologies: ["Next.js", "TypeScript", "Ethereum"]
     }
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
-
-  const StatusBadge = ({ status }: { status: string }) => {
-    const statusConfig = {
-      Live: { color: '#10B981', label: 'Live' },
-      Beta: { color: '#F59E0B', label: 'Beta' },
-      Development: { color: '#3B82F6', label: 'Dev' }
-    };
-
-    const config = statusConfig[status as keyof typeof statusConfig] || statusConfig.Development;
-
-    return (
-      <span 
-        className="status-badge"
-        style={{ 
-          backgroundColor: `${config.color}20`,
-          color: config.color,
-          border: `1px solid ${config.color}40`
-        }}
-      >
-        {config.label}
-      </span>
-    );
-  };
-
   return (
-    <div className="projects-page">
-      <div className="projects-container">
-        <header className="projects-header">
-          <h1 className="projects-title">Projects</h1>
-          <p className="projects-subtitle">
-            A collection of my recent work in software development and blockchain research
-          </p>
-        </header>
-
-        <div className="filters">
-          <button 
-            className={`filter-btn ${activeFilter === 'all' ? 'active' : ''}`}
-            onClick={() => setActiveFilter('all')}
-          >
-            All Projects
-          </button>
-          <button 
-            className={`filter-btn ${activeFilter === 'web' ? 'active' : ''}`}
-            onClick={() => setActiveFilter('web')}
-          >
-            Web Development
-          </button>
-          <button 
-            className={`filter-btn ${activeFilter === 'blockchain' ? 'active' : ''}`}
-            onClick={() => setActiveFilter('blockchain')}
-          >
-            Blockchain
-          </button>
-          <button 
-            className={`filter-btn ${activeFilter === 'research' ? 'active' : ''}`}
-            onClick={() => setActiveFilter('research')}
-          >
-            Research
-          </button>
-        </div>
-
-        <div className="projects-grid">
-          {filteredProjects.map((project) => (
-            <div key={project.id} className="project-card">
-              <div className="project-header">
-                <h3 className="project-title">{project.title}</h3>
-                <StatusBadge status={project.status} />
-              </div>
-              
-              <p className="project-description">{project.description}</p>
-              
-              <div className="technologies">
-                {project.technologies.map((tech, index) => (
-                  <span key={index} className="tech-tag">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              
-              <div className="project-actions">
-                <a 
-                  href={project.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="project-link"
-                >
-                  Visit Project →
-                </a>
-              </div>
+    <main style={{ minHeight: '100vh', padding: '2rem', background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)' }}>
+      <Link href="/" style={{ color: '#667eea', textDecoration: 'none', marginBottom: '2rem', display: 'block' }}>
+        ← Back to Home
+      </Link>
+      
+      <h1 style={{ fontSize: '3rem', marginBottom: '1rem' }}>My Projects</h1>
+      
+      <div style={{ display: 'grid', gap: '2rem', marginTop: '3rem' }}>
+        {projects.map((project, index) => (
+          <div key={index} style={{ background: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+            <h2 style={{ margin: '0 0 1rem 0' }}>{project.title}</h2>
+            <p style={{ marginBottom: '1rem' }}>{project.description}</p>
+            <div style={{ marginBottom: '1rem' }}>
+              {project.technologies.map((tech, i) => (
+                <span key={i} style={{ background: '#667eea', color: 'white', padding: '0.25rem 0.75rem', borderRadius: '20px', marginRight: '0.5rem', fontSize: '0.8rem' }}>
+                  {tech}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
-
-        {filteredProjects.length === 0 && (
-          <div className="no-projects">
-            <p>No projects found in this category.</p>
+            <a href={project.link} target="_blank" rel="noopener" style={{ color: '#667eea', textDecoration: 'none' }}>
+              View Project →
+            </a>
           </div>
-        )}
+        ))}
       </div>
-    </div>
+    </main>
   );
-};
-
-export default ProjectsPage;
+}

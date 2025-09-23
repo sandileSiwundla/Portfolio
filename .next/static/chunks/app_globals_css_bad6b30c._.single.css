@@ -392,6 +392,14 @@
 @layer components;
 
 @layer utilities {
+  .block {
+    display: block;
+  }
+
+  .grid {
+    display: grid;
+  }
+
   .resize {
     resize: both;
   }
