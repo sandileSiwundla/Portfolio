@@ -21,7 +21,7 @@ export default function ResearchPapersPage() {
       date: "2024-11-24",
       readTime: 9,
       isPinned: true,
-      mediumLink: "https://medium.com/@yourusername/unlocking-value-in-web3-gaming"
+      mediumLink: "https://medium.com/@africablockchainclub/unlocking-value-in-web3-gaming-e92401d553ff"
     },
     {
       id: 2,
@@ -29,7 +29,7 @@ export default function ResearchPapersPage() {
       description: "The shocking downfall of a crypto trading platform called FTX Trading Ltd, amidst allegations of insider trading and fraud, exposed the vulnerabilities such as lack of transparency, and misuse of customer funds in centralised exchanges (CEXs). This event has highlighted the importance of using blockchain technology to aid transparency and accountability, two key traits inherent to decentralised exchanges (DEXs).",
       date: "2024-08-01",
       readTime: 8,
-      mediumLink: "https://medium.com/@yourusername/cex-or-dex-the-ftx-collapse-disruption"
+      mediumLink: "https://medium.com/@africablockchainclub/cex-or-dex-the-ftx-collapse-disruption-f20a863f416a"
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ export default function ResearchPapersPage() {
       description: "Kaito AI, a Web3 intelligence platform, is transforming how we access and use crypto information by combining artificial intelligence and blockchain technology. Founded in 2022 by Yu Hu (ex-Citadel portfolio manager, now CEO) and Yunzhong He in Seattle, USA, the platform is built on Base. While it operates in a competitive space alongside platforms like CoinGecko, Coin Metrics, and Covalent, Kaito stands out by blending AI-driven search, real-time analytics, and tokenized incentives into a single, seamless ecosystem.",
       date: "2025-09-06",
       readTime: 9,
-      mediumLink: "https://medium.com/@yourusername/kaito-ai-turning-crypto-knowledge-into-earnings"
+      mediumLink: "https://medium.com/@africablockchainclub/kaito-ai-turning-crypto-knowledge-into-earnings-493dc8cd1ba0"
     },
     {
       id: 4,
@@ -45,7 +45,7 @@ export default function ResearchPapersPage() {
       description: "On February 21st, 2025, 14:13:35 UTC Bybit fell victim to a sophisticated cyberattack that resulted in the theft of over 400,000 ETH — valued at nearly $1.5 billion at the time -unraveling critical questions about security in the DeFi space.",
       date: "2025-04-24",
       readTime: 6,
-      mediumLink: "https://medium.com/@yourusername/the-breach-that-rocked-the-crypto-world-bybits-heist"
+      mediumLink: "https://medium.com/@africablockchainclub/the-breach-that-rocked-the-crypto-world-bybits-1-5-billion-heist-9a1b0d50ebd3"
     }
   ];
 
