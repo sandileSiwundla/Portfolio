@@ -21,7 +21,7 @@ export default function ProjectsPage() {
   const projects = [
     {
       title: "Charity NFT",
-      description: "A revolutionary Web3 platform leveraging account abstraction for gasless transactions and social logins. Each NFT purchase automatically donates to verified charities, combining digital art collection with real-world impact through smart contract automation.",
+      description: "A Web3 platform leveraging account abstraction for gasless transactions and social logins. Each NFT purchase automatically donates to verified charities, combining digital art collection with real-world impact through smart contract automation.",
       technologies: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll Blockchain", "ERC-721", "Social Logins", "Paymaster"],
       status: "Live", 
       link: "https://nft-app-dun-six.vercel.app",
@@ -296,7 +296,7 @@ export default function ProjectsPage() {
             marginBottom: '1rem',
             margin: '0'
           }}>
-            Innovation Portfolio
+            Projects
           </h1>
           <p style={{
             fontSize: '1.2rem',
@@ -331,8 +331,8 @@ export default function ProjectsPage() {
               overflow: 'hidden',
               display: 'flex',
               flexDirection: 'column',
-              height: '480px', // Fixed height for all cards
-              minHeight: '480px'
+              height: '430px', 
+              minHeight: '430px'
             }} 
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';

@@ -47,7 +47,7 @@ function ProjectsPage() {
     const projects = [
         {
             title: "Charity NFT",
-            description: "A revolutionary Web3 platform leveraging account abstraction for gasless transactions and social logins. Each NFT purchase automatically donates to verified charities, combining digital art collection with real-world impact through smart contract automation.",
+            description: "A Web3 platform leveraging account abstraction for gasless transactions and social logins. Each NFT purchase automatically donates to verified charities, combining digital art collection with real-world impact through smart contract automation.",
             technologies: [
                 "Next.js",
                 "TypeScript",
@@ -442,7 +442,7 @@ function ProjectsPage() {
                                         ]
                                     ]
                                 ]),
-                                children: "Innovation Portfolio"
+                                children: "Projects"
                             }, void 0, false, {
                                 fileName: "[project]/app/Projects/page.tsx",
                                 lineNumber: 287,
@@ -505,8 +505,8 @@ function ProjectsPage() {
                                     overflow: 'hidden',
                                     display: 'flex',
                                     flexDirection: 'column',
-                                    height: '480px',
-                                    minHeight: '480px'
+                                    height: '430px',
+                                    minHeight: '430px'
                                 },
                                 onMouseEnter: (e)=>{
                                     e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
