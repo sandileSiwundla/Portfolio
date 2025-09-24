@@ -404,6 +404,18 @@
 @layer components;
 
 @layer utilities {
+  .collapse {
+    visibility: collapse;
+  }
+
+  .absolute {
+    position: absolute;
+  }
+
+  .relative {
+    position: relative;
+  }
+
   .flex {
     display: flex;
   }
