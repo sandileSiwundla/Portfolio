@@ -1,10 +1,15 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function ArticlesPage() {
+  const [hoverStates, setHoverStates] = useState<{[key: string]: boolean}>({});
+  const [linkHoverStates, setLinkHoverStates] = useState<{[key: string]: boolean}>({});
+
   const articles = [
     {
+      id: 1,
       title: "Blockchain Technology in African Healthcare Systems",
       publication: "International Journal of Medical Informatics",
       date: "2024",
@@ -14,6 +19,7 @@ export default function ArticlesPage() {
       status: "Published"
     },
     {
+      id: 2,
       title: "Decentralized Identity Management Using Smart Contracts",
       publication: "IEEE Conference on Blockchain Research",
       date: "2023", 
@@ -23,6 +29,7 @@ export default function ArticlesPage() {
       status: "Published"
     },
     {
+      id: 3,
       title: "IPFS Integration for Academic Paper Distribution",
       publication: "Journal of Distributed Systems",
       date: "2023",
@@ -32,6 +39,7 @@ export default function ArticlesPage() {
       status: "Under Review"
     },
     {
+      id: 4,
       title: "Sustainable Blockchain Solutions for Developing Economies",
       publication: "African Technology Review",
       date: "2024",
@@ -41,6 +49,22 @@ export default function ArticlesPage() {
       status: "In Progress"
     }
   ];
+
+  const handleMouseEnter = (id: string) => {
+    setHoverStates(prev => ({ ...prev, [id]: true }));
+  };
+
+  const handleMouseLeave = (id: string) => {
+    setHoverStates(prev => ({ ...prev, [id]: false }));
+  };
+
+  const handleLinkMouseEnter = (id: string) => {
+    setLinkHoverStates(prev => ({ ...prev, [id]: true }));
+  };
+
+  const handleLinkMouseLeave = (id: string) => {
+    setLinkHoverStates(prev => ({ ...prev, [id]: false }));
+  };
 
   const StatusBadge = ({ status }: { status: string }) => {
     const statusConfig = {
@@ -79,21 +103,18 @@ export default function ArticlesPage() {
         maxWidth: '1200px',
         margin: '0 auto'
       }}>
-        <Link href="/" style={{
-          color: '#667eea',
-          textDecoration: 'none',
-          fontWeight: '600',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.5rem',
-          transition: 'all 0.3s ease'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.gap = '0.75rem';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.gap = '0.5rem';
-        }}>
+        <Link 
+          href="/" 
+          style={{
+            color: '#667eea',
+            textDecoration: 'none',
+            fontWeight: '600',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            transition: 'all 0.3s ease'
+          }}
+        >
           ← Back to Home
         </Link>
       </nav>
@@ -138,25 +159,24 @@ export default function ArticlesPage() {
           gap: '2rem',
           marginBottom: '3rem'
         }}>
-          {articles.map((article, index) => (
-            <div key={index} style={{
-              background: 'white',
-              borderRadius: '12px',
-              padding: '2.5rem',
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1)',
-              border: '1px solid #e2e8f0',
-              transition: 'all 0.3s ease',
-              cursor: 'pointer'
-            }} 
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(102, 126, 234, 0.1)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1)';
-            }}
-            onClick={() => article.link !== '#' && window.open(article.link, '_blank')}
+          {articles.map((article) => (
+            <div 
+              key={article.id}
+              style={{
+                background: 'white',
+                borderRadius: '12px',
+                padding: '2.5rem',
+                boxShadow: hoverStates[article.id] 
+                  ? '0 10px 25px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(102, 126, 234, 0.1)'
+                  : '0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1)',
+                border: '1px solid #e2e8f0',
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+                transform: hoverStates[article.id] ? 'translateY(-2px)' : 'translateY(0)'
+              }} 
+              onMouseEnter={() => handleMouseEnter(article.id.toString())}
+              onMouseLeave={() => handleMouseLeave(article.id.toString())}
+              onClick={() => article.link !== '#' && window.open(article.link, '_blank')}
             >
               {/* Article Header */}
               <div style={{
@@ -250,21 +270,13 @@ export default function ArticlesPage() {
                     transition: 'all 0.3s ease',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.5rem',
+                    gap: linkHoverStates[article.id] ? '0.75rem' : '0.5rem',
                     opacity: article.link === '#' ? 0.5 : 1,
                     pointerEvents: article.link === '#' ? 'none' : 'auto'
                   }}
                   onClick={(e) => e.stopPropagation()}
-                  onMouseEnter={(e) => {
-                    if (article.link !== '#') {
-                      e.currentTarget.style.gap = '0.75rem';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (article.link !== '#') {
-                      e.currentTarget.style.gap = '0.5rem';
-                    }
-                  }}
+                  onMouseEnter={() => handleLinkMouseEnter(article.id.toString())}
+                  onMouseLeave={() => handleLinkMouseLeave(article.id.toString())}
                 >
                   {article.link === '#' ? 'Coming Soon' : 'Read Paper →'}
                 </a>
@@ -377,7 +389,7 @@ export default function ArticlesPage() {
             flexWrap: 'wrap'
           }}>
             <a 
-              href="mailto:your-email@example.com"
+              href="mailto:sandile@example.com"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -391,20 +403,11 @@ export default function ArticlesPage() {
                 borderRadius: '8px',
                 transition: 'all 0.3s ease'
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'transparent';
-                e.currentTarget.style.color = '#667eea';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = '#667eea';
-                e.currentTarget.style.color = 'white';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
             >
               📧 Discuss Research
             </a>
-            <Link href="/" 
+            <Link 
+              href="/projects"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -417,16 +420,6 @@ export default function ArticlesPage() {
                 fontWeight: '600',
                 borderRadius: '8px',
                 transition: 'all 0.3s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = '#a0aec0';
-                e.currentTarget.style.color: 'white';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent';
-                e.currentTarget.style.color = '#4a5568';
-                e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
               ← View Projects

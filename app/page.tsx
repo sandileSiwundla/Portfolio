@@ -55,8 +55,11 @@ const LandingPage = () => {
     router.push('/Projects');
   };
 
+    const handleViewPapers = () => {
+    router.push('/Papers');
+  };
   const handleViewWebsite = () => {
-    window.open('https://github.com/SandileSiwundla', '_blank');
+    window.open('https://github.com/sandileSiwundla', '_blank');
   };
 
   return (
@@ -111,6 +114,13 @@ const LandingPage = () => {
                 >
                   <span className="button-icon">💻</span>
                   GitHub
+                </button>
+                <button 
+                  className="minimal-button secondary"
+                  onClick={handleViewPapers} 
+                >
+                  <span className="button-icon">🚀</span>
+                  View Papers
                 </button>
               </div>
 
