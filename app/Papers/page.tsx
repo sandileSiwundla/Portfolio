@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 interface Paper {
   id: number;
@@ -13,6 +14,26 @@ interface Paper {
 }
 
 export default function ResearchPapersPage() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check system preference or saved preference
+    const savedMode = localStorage.getItem('darkMode');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedMode !== null) {
+      setIsDarkMode(savedMode === 'true');
+    } else {
+      setIsDarkMode(systemPrefersDark);
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newMode = !isDarkMode;
+    setIsDarkMode(newMode);
+    localStorage.setItem('darkMode', newMode.toString());
+  };
+
   const papers: Paper[] = [
     {
       id: 1,
@@ -62,7 +83,15 @@ export default function ResearchPapersPage() {
       Archive: { color: '#6B7280', background: 'rgba(107, 114, 128, 0.1)', label: 'Archive' }
     };
 
-    const config = statusConfig[status as keyof typeof statusConfig] || statusConfig.Recent;
+    const darkStatusConfig = {
+      Pinned: { color: '#10B981', background: 'rgba(16, 185, 129, 0.2)', label: 'Pinned' },
+      Recent: { color: '#60A5FA', background: 'rgba(96, 165, 250, 0.2)', label: 'Recent' },
+      Archive: { color: '#9CA3AF', background: 'rgba(156, 163, 175, 0.2)', label: 'Archive' }
+    };
+
+    const config = isDarkMode 
+      ? darkStatusConfig[status as keyof typeof darkStatusConfig] || darkStatusConfig.Recent
+      : statusConfig[status as keyof typeof statusConfig] || statusConfig.Recent;
 
     return (
       <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -78,7 +107,7 @@ export default function ResearchPapersPage() {
           {config.label}
         </span>
         <span style={{
-          color: '#6B7280',
+          color: isDarkMode ? '#9CA3AF' : '#6B7280',
           fontSize: '0.9rem',
           display: 'flex',
           alignItems: 'center',
@@ -115,12 +144,31 @@ export default function ResearchPapersPage() {
   };
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      background: 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
-      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-      color: '#2d3748'
-    }}>
+    <div className={`projects-page ${isDarkMode ? 'dark' : 'light'}`}>
+      {/* Dark Mode Toggle */}
+      <button 
+        className="dark-mode-toggle"
+        onClick={toggleDarkMode}
+        aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+        style={{
+          position: 'fixed',
+          top: '1.5rem',
+          right: '1.5rem',
+          background: isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(99, 102, 241, 0.1)',
+          border: `1px solid ${isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(99, 102, 241, 0.2)'}`,
+          borderRadius: '20px',
+          padding: '0.5rem 1rem',
+          fontSize: '0.9rem',
+          cursor: 'pointer',
+          transition: 'all 0.3s ease',
+          backdropFilter: 'blur(10px)',
+          zIndex: 1000,
+          color: isDarkMode ? '#e2e8f0' : '#4f46e5'
+        }}
+      >
+        {isDarkMode ? '☀️ Light' : '🌙 Dark'}
+      </button>
+
       {/* Navigation */}
       <nav style={{
         padding: '2rem',
@@ -128,7 +176,7 @@ export default function ResearchPapersPage() {
         margin: '0 auto'
       }}>
         <Link href="/" style={{
-          color: '#667eea',
+          color: isDarkMode ? '#818cf8' : '#667eea',
           textDecoration: 'none',
           fontWeight: '600',
           display: 'inline-flex',
@@ -154,7 +202,9 @@ export default function ResearchPapersPage() {
           <h1 style={{
             fontSize: '3rem',
             fontWeight: '700',
-            background: 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+            background: isDarkMode 
+              ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)'
+              : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -165,7 +215,7 @@ export default function ResearchPapersPage() {
           </h1>
           <p style={{
             fontSize: '1.2rem',
-            color: '#4a5568',
+            color: isDarkMode ? '#cbd5e1' : '#4a5568',
             maxWidth: '600px',
             margin: '0 auto',
             lineHeight: '1.6'
@@ -183,17 +233,20 @@ export default function ResearchPapersPage() {
         }}>
           {papers.map((paper, index) => (
             <div key={index} style={{
-              background: 'white',
+              background: isDarkMode ? 'rgba(30, 41, 59, 0.5)' : 'white',
               borderRadius: '12px',
               padding: '2rem',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1)',
-              border: '1px solid #e2e8f0',
+              border: isDarkMode ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid #e2e8f0',
               transition: 'all 0.3s ease',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              backdropFilter: isDarkMode ? 'blur(10px)' : 'none'
             }} 
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-4px)';
-              e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(102, 126, 234, 0.1)';
+              e.currentTarget.style.boxShadow = isDarkMode 
+                ? '0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(129, 140, 248, 0.2)'
+                : '0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(102, 126, 234, 0.1)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = 'translateY(0)';
@@ -213,7 +266,7 @@ export default function ResearchPapersPage() {
                   <h3 style={{
                     fontSize: '1.5rem',
                     fontWeight: '700',
-                    color: '#2d3748',
+                    color: isDarkMode ? '#f1f5f9' : '#2d3748',
                     margin: '0'
                   }}>
                     {paper.title}
@@ -230,7 +283,7 @@ export default function ResearchPapersPage() {
               }}>
                 <StatusBadge status={getCategory(paper)} readTime={paper.readTime} />
                 <span style={{
-                  color: '#6B7280',
+                  color: isDarkMode ? '#9CA3AF' : '#6B7280',
                   fontSize: '0.9rem'
                 }}>
                   📅 {formatDate(paper.date)}
@@ -239,10 +292,10 @@ export default function ResearchPapersPage() {
               
               {/* Description */}
               <p style={{
-                color: '#4a5568',
+                color: isDarkMode ? '#cbd5e1' : '#4a5568',
                 lineHeight: '1.6',
                 marginBottom: '1.5rem',
-                height: '4.8em', // Approximately 3 lines of text
+                height: '4.8em',
                 overflow: 'hidden'
               }}>
                 {truncateDescription(paper.description, 150)}
@@ -255,8 +308,8 @@ export default function ResearchPapersPage() {
               }}>
                 <button style={{
                   background: 'transparent',
-                  color: '#667eea',
-                  border: '1px solid #667eea',
+                  color: isDarkMode ? '#818cf8' : '#667eea',
+                  border: `1px solid ${isDarkMode ? '#818cf8' : '#667eea'}`,
                   padding: '0.5rem 1.5rem',
                   borderRadius: '8px',
                   fontWeight: '600',
@@ -271,13 +324,13 @@ export default function ResearchPapersPage() {
                   window.open(paper.mediumLink, '_blank');
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = '#667eea';
+                  e.currentTarget.style.background = isDarkMode ? '#818cf8' : '#667eea';
                   e.currentTarget.style.color = 'white';
                   e.currentTarget.style.gap = '0.75rem';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.color = '#667eea';
+                  e.currentTarget.style.color = isDarkMode ? '#818cf8' : '#667eea';
                   e.currentTarget.style.gap = '0.5rem';
                 }}
                 >
@@ -289,7 +342,61 @@ export default function ResearchPapersPage() {
         </div>
       </div>
 
+      <style jsx>{`
+        .projects-page {
+          min-height: 100vh;
+          position: relative;
+          overflow-x: hidden;
+          transition: all 0.3s ease;
+        }
 
+        .projects-page.light {
+          background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+          color: #1e293b;
+        }
+
+        .projects-page.dark {
+          background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+          color: #f1f5f9;
+        }
+
+        .dark-mode-toggle:hover {
+          transform: translateY(-1px);
+          background: ${isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'};
+        }
+
+        @media (max-width: 768px) {
+          .projects-page {
+            padding: 1rem;
+          }
+
+          h1 {
+            font-size: 2.5rem !important;
+          }
+
+          .projects-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+          }
+
+          .project-card {
+            padding: 1.5rem !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          h1 {
+            font-size: 2rem !important;
+          }
+
+          .dark-mode-toggle {
+            top: 1rem;
+            right: 1rem;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+          }
+        }
+      `}</style>
     </div>
   );
 }
