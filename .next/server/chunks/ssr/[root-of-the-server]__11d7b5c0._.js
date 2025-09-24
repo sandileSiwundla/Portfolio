@@ -286,7 +286,7 @@ function ProjectsPage() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
             [
-                "763847e2fd7ce51d",
+                "de9dbbe17c381215",
                 [
                     isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                 ]
@@ -307,7 +307,7 @@ function ProjectsPage() {
                 },
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                     [
-                        "763847e2fd7ce51d",
+                        "de9dbbe17c381215",
                         [
                             isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                         ]
@@ -338,7 +338,7 @@ function ProjectsPage() {
                 },
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                     [
-                        "763847e2fd7ce51d",
+                        "de9dbbe17c381215",
                         [
                             isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                         ]
@@ -360,7 +360,7 @@ function ProjectsPage() {
                 },
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                     [
-                        "763847e2fd7ce51d",
+                        "de9dbbe17c381215",
                         [
                             isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                         ]
@@ -402,7 +402,7 @@ function ProjectsPage() {
                 },
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                     [
-                        "763847e2fd7ce51d",
+                        "de9dbbe17c381215",
                         [
                             isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                         ]
@@ -416,7 +416,7 @@ function ProjectsPage() {
                         },
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                             [
-                                "763847e2fd7ce51d",
+                                "de9dbbe17c381215",
                                 [
                                     isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                                 ]
@@ -436,7 +436,7 @@ function ProjectsPage() {
                                 },
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                                     [
-                                        "763847e2fd7ce51d",
+                                        "de9dbbe17c381215",
                                         [
                                             isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                                         ]
@@ -458,7 +458,7 @@ function ProjectsPage() {
                                 },
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                                     [
-                                        "763847e2fd7ce51d",
+                                        "de9dbbe17c381215",
                                         [
                                             isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                                         ]
@@ -485,7 +485,7 @@ function ProjectsPage() {
                         },
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                             [
-                                "763847e2fd7ce51d",
+                                "de9dbbe17c381215",
                                 [
                                     isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                                 ]
@@ -502,7 +502,11 @@ function ProjectsPage() {
                                     cursor: 'pointer',
                                     backdropFilter: 'blur(10px)',
                                     position: 'relative',
-                                    overflow: 'hidden'
+                                    overflow: 'hidden',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    height: '480px',
+                                    minHeight: '480px'
                                 },
                                 onMouseEnter: (e)=>{
                                     e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
@@ -515,50 +519,24 @@ function ProjectsPage() {
                                 onClick: ()=>window.open(project.link, '_blank'),
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                                     [
-                                        "763847e2fd7ce51d",
+                                        "de9dbbe17c381215",
                                         [
                                             isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                                         ]
                                     ]
                                 ]),
                                 children: [
-                                    project.featured && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        style: {
-                                            position: 'absolute',
-                                            top: '1rem',
-                                            right: '1rem',
-                                            background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
-                                            color: '#000',
-                                            padding: '0.25rem 0.75rem',
-                                            borderRadius: '12px',
-                                            fontSize: '0.7rem',
-                                            fontWeight: '700',
-                                            zIndex: 2
-                                        },
-                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
-                                            [
-                                                "763847e2fd7ce51d",
-                                                [
-                                                    isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
-                                                ]
-                                            ]
-                                        ]),
-                                        children: "⭐ FEATURED"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/Projects/page.tsx",
-                                        lineNumber: 348,
-                                        columnNumber: 17
-                                    }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         style: {
                                             display: 'flex',
                                             justifyContent: 'space-between',
                                             alignItems: 'flex-start',
-                                            marginBottom: '1rem'
+                                            marginBottom: '1rem',
+                                            flexShrink: 0
                                         },
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                                             [
-                                                "763847e2fd7ce51d",
+                                                "de9dbbe17c381215",
                                                 [
                                                     isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                                                 ]
@@ -572,11 +550,12 @@ function ProjectsPage() {
                                                     color: isDarkMode ? '#f1f5f9' : '#2d3748',
                                                     margin: '0',
                                                     flex: '1',
-                                                    marginRight: '1rem'
+                                                    marginRight: '1rem',
+                                                    lineHeight: '1.3'
                                                 },
                                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                                                     [
-                                                        "763847e2fd7ce51d",
+                                                        "de9dbbe17c381215",
                                                         [
                                                             isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                                                         ]
@@ -585,18 +564,19 @@ function ProjectsPage() {
                                                 children: project.title
                                             }, void 0, false, {
                                                 fileName: "[project]/app/Projects/page.tsx",
-                                                lineNumber: 370,
+                                                lineNumber: 359,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 style: {
                                                     display: 'flex',
                                                     alignItems: 'center',
-                                                    gap: '0.5rem'
+                                                    gap: '0.5rem',
+                                                    flexShrink: 0
                                                 },
                                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                                                     [
-                                                        "763847e2fd7ce51d",
+                                                        "de9dbbe17c381215",
                                                         [
                                                             isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                                                         ]
@@ -607,102 +587,142 @@ function ProjectsPage() {
                                                         status: project.status
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/Projects/page.tsx",
-                                                        lineNumber: 381,
+                                                        lineNumber: 371,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CategoryBadge, {
                                                         category: project.category
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/Projects/page.tsx",
-                                                        lineNumber: 382,
+                                                        lineNumber: 372,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/Projects/page.tsx",
-                                                lineNumber: 380,
+                                                lineNumber: 370,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/Projects/page.tsx",
-                                        lineNumber: 364,
+                                        lineNumber: 352,
                                         columnNumber: 15
                                     }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         style: {
-                                            color: isDarkMode ? '#cbd5e1' : '#4a5568',
-                                            lineHeight: '1.6',
+                                            flex: '1',
                                             marginBottom: '1.5rem',
-                                            fontSize: '0.95rem'
+                                            overflow: 'hidden'
                                         },
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                                             [
-                                                "763847e2fd7ce51d",
+                                                "de9dbbe17c381215",
                                                 [
                                                     isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                                                 ]
                                             ]
                                         ]),
-                                        children: project.description
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/Projects/page.tsx",
-                                        lineNumber: 386,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        style: {
-                                            display: 'flex',
-                                            flexWrap: 'wrap',
-                                            gap: '0.5rem',
-                                            marginBottom: '2rem'
-                                        },
-                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
-                                            [
-                                                "763847e2fd7ce51d",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            style: {
+                                                color: isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                lineHeight: '1.6',
+                                                fontSize: '0.95rem',
+                                                margin: 0,
+                                                display: '-webkit-box',
+                                                WebkitLineClamp: 4,
+                                                WebkitBoxOrient: 'vertical',
+                                                overflow: 'hidden'
+                                            },
+                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                                                 [
-                                                    isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
-                                                ]
-                                            ]
-                                        ]),
-                                        children: project.technologies.map((tech, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                style: {
-                                                    background: isDarkMode ? 'rgba(102, 126, 234, 0.2)' : 'rgba(102, 126, 234, 0.1)',
-                                                    color: '#667eea',
-                                                    padding: '0.4rem 0.8rem',
-                                                    borderRadius: '12px',
-                                                    fontSize: '0.75rem',
-                                                    fontWeight: '600',
-                                                    border: `1px solid ${isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)'}`,
-                                                    backdropFilter: 'blur(10px)'
-                                                },
-                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                    "de9dbbe17c381215",
                                                     [
-                                                        "763847e2fd7ce51d",
-                                                        [
-                                                            isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
-                                                        ]
+                                                        isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                                                     ]
-                                                ]),
-                                                children: tech
-                                            }, i, false, {
-                                                fileName: "[project]/app/Projects/page.tsx",
-                                                lineNumber: 402,
-                                                columnNumber: 19
-                                            }, this))
+                                                ]
+                                            ]),
+                                            children: project.description
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/Projects/page.tsx",
+                                            lineNumber: 382,
+                                            columnNumber: 17
+                                        }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/Projects/page.tsx",
-                                        lineNumber: 395,
+                                        lineNumber: 377,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         style: {
-                                            display: 'flex',
-                                            justifyContent: 'flex-end'
+                                            marginBottom: '2rem',
+                                            flexShrink: 0
                                         },
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                                             [
-                                                "763847e2fd7ce51d",
+                                                "de9dbbe17c381215",
+                                                [
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
+                                                ]
+                                            ]
+                                        ]),
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            style: {
+                                                display: 'flex',
+                                                flexWrap: 'wrap',
+                                                gap: '0.5rem'
+                                            },
+                                            className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                [
+                                                    "de9dbbe17c381215",
+                                                    [
+                                                        isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
+                                                    ]
+                                                ]
+                                            ]),
+                                            children: project.technologies.map((tech, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    style: {
+                                                        background: isDarkMode ? 'rgba(102, 126, 234, 0.2)' : 'rgba(102, 126, 234, 0.1)',
+                                                        color: '#667eea',
+                                                        padding: '0.4rem 0.8rem',
+                                                        borderRadius: '12px',
+                                                        fontSize: '0.75rem',
+                                                        fontWeight: '600',
+                                                        border: `1px solid ${isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)'}`,
+                                                        backdropFilter: 'blur(10px)'
+                                                    },
+                                                    className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                        [
+                                                            "de9dbbe17c381215",
+                                                            [
+                                                                isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
+                                                            ]
+                                                        ]
+                                                    ]),
+                                                    children: tech
+                                                }, i, false, {
+                                                    fileName: "[project]/app/Projects/page.tsx",
+                                                    lineNumber: 407,
+                                                    columnNumber: 21
+                                                }, this))
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/Projects/page.tsx",
+                                            lineNumber: 401,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/Projects/page.tsx",
+                                        lineNumber: 397,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            marginTop: 'auto',
+                                            flexShrink: 0
+                                        },
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                            [
+                                                "de9dbbe17c381215",
                                                 [
                                                     isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                                                 ]
@@ -719,12 +739,15 @@ function ProjectsPage() {
                                                 transition: 'all 0.3s ease',
                                                 display: 'flex',
                                                 alignItems: 'center',
+                                                justifyContent: 'center',
                                                 gap: '0.5rem',
                                                 background: isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)',
                                                 padding: '0.75rem 1.5rem',
                                                 borderRadius: '12px',
                                                 border: `1px solid ${isDarkMode ? 'rgba(102, 126, 234, 0.2)' : 'rgba(102, 126, 234, 0.1)'}`,
-                                                fontSize: '0.9rem'
+                                                fontSize: '0.9rem',
+                                                width: '100%',
+                                                textAlign: 'center'
                                             },
                                             onClick: (e)=>e.stopPropagation(),
                                             onMouseEnter: (e)=>{
@@ -739,7 +762,7 @@ function ProjectsPage() {
                                             },
                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                                                 [
-                                                    "763847e2fd7ce51d",
+                                                    "de9dbbe17c381215",
                                                     [
                                                         isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                                                     ]
@@ -748,12 +771,12 @@ function ProjectsPage() {
                                             children: "Explore Live Demo →"
                                         }, void 0, false, {
                                             fileName: "[project]/app/Projects/page.tsx",
-                                            lineNumber: 421,
+                                            lineNumber: 428,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/Projects/page.tsx",
-                                        lineNumber: 417,
+                                        lineNumber: 424,
                                         columnNumber: 15
                                     }, this)
                                 ]
@@ -785,7 +808,7 @@ function ProjectsPage() {
                 },
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                     [
-                        "763847e2fd7ce51d",
+                        "de9dbbe17c381215",
                         [
                             isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                         ]
@@ -798,7 +821,7 @@ function ProjectsPage() {
                     },
                     className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
                         [
-                            "763847e2fd7ce51d",
+                            "de9dbbe17c381215",
                             [
                                 isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                             ]
@@ -811,20 +834,20 @@ function ProjectsPage() {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/Projects/page.tsx",
-                    lineNumber: 468,
+                    lineNumber: 478,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/Projects/page.tsx",
-                lineNumber: 459,
+                lineNumber: 469,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                id: "763847e2fd7ce51d",
+                id: "de9dbbe17c381215",
                 dynamic: [
                     isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'
                 ],
-                children: `@keyframes spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.projects-page.__jsx-style-dynamic-selector{min-height:100vh;transition:all .3s;position:relative;overflow-x:hidden}.projects-page.light.__jsx-style-dynamic-selector{color:#1e293b;background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 50%,#e2e8f0 100%)}.projects-page.dark.__jsx-style-dynamic-selector{color:#f1f5f9;background:linear-gradient(135deg,#0f0f23 0%,#1a1a2e 50%,#16213e 100%)}.dark-mode-toggle.__jsx-style-dynamic-selector:hover{background:${isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'};transform:translateY(-2px)}@media (width<=768px){.projects-page.__jsx-style-dynamic-selector{padding:1rem}h1.__jsx-style-dynamic-selector{font-size:2.5rem!important}.projects-grid.__jsx-style-dynamic-selector{grid-template-columns:1fr!important;gap:1.5rem!important}.project-card.__jsx-style-dynamic-selector{padding:1.5rem!important}}@media (width<=480px){h1.__jsx-style-dynamic-selector{font-size:2rem!important}.dark-mode-toggle.__jsx-style-dynamic-selector{padding:.4rem .8rem;font-size:.8rem;top:1rem;right:1rem}}`
+                children: `@keyframes spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.projects-page.__jsx-style-dynamic-selector{min-height:100vh;transition:all .3s;position:relative;overflow-x:hidden}.projects-page.light.__jsx-style-dynamic-selector{color:#1e293b;background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 50%,#e2e8f0 100%)}.projects-page.dark.__jsx-style-dynamic-selector{color:#f1f5f9;background:linear-gradient(135deg,#0f0f23 0%,#1a1a2e 50%,#16213e 100%)}.dark-mode-toggle.__jsx-style-dynamic-selector:hover{background:${isDarkMode ? 'rgba(255, 255, 255, 0.15)' : 'rgba(99, 102, 241, 0.15)'};transform:translateY(-2px)}@media (width<=768px){.projects-page.__jsx-style-dynamic-selector{padding:1rem}h1.__jsx-style-dynamic-selector{font-size:2.5rem!important}.projects-grid.__jsx-style-dynamic-selector{grid-template-columns:1fr!important;gap:1.5rem!important}.project-card.__jsx-style-dynamic-selector{height:auto!important;min-height:400px!important;padding:1.5rem!important}}@media (width<=480px){h1.__jsx-style-dynamic-selector{font-size:2rem!important}.dark-mode-toggle.__jsx-style-dynamic-selector{padding:.4rem .8rem;font-size:.8rem;top:1rem;right:1rem}.project-card.__jsx-style-dynamic-selector{min-height:380px!important;padding:1.25rem!important}}`
             }, void 0, false, void 0, this)
         ]
     }, void 0, true, {

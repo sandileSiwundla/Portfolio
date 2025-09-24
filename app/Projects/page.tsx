@@ -20,21 +20,21 @@ export default function ProjectsPage() {
 
   const projects = [
     {
-  title: "Charity NFT",
-  description: "A revolutionary Web3 platform leveraging account abstraction for gasless transactions and social logins. Each NFT purchase automatically donates to verified charities, combining digital art collection with real-world impact through smart contract automation.",
-  technologies: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll Blockchain", "ERC-721", "Social Logins", "Paymaster"],
-  status: "Live", 
-  link: "https://nft-app-dun-six.vercel.app",
-  category: "blockchain",
-},
+      title: "Charity NFT",
+      description: "A revolutionary Web3 platform leveraging account abstraction for gasless transactions and social logins. Each NFT purchase automatically donates to verified charities, combining digital art collection with real-world impact through smart contract automation.",
+      technologies: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll Blockchain", "ERC-721", "Social Logins", "Paymaster"],
+      status: "Live", 
+      link: "https://nft-app-dun-six.vercel.app",
+      category: "blockchain",
+    },
     {
-  title: "Africa's Blockchain Club Hub",
-  description: "The official platform for Africa's leading blockchain community, featuring research papers, event coordination, and member networking. Showcasing African blockchain innovation through interactive content and educational resources for enthusiasts of all levels.",
-  technologies: ["React", "Next.js", "Tailwind CSS", "IPFS integration", "Community Platform"],
-  status: "Live",
-  link: "https://africasblockchainclub.vercel.app",
-  category: "web"
-},
+      title: "Africa's Blockchain Club Hub",
+      description: "The official platform for Africa's leading blockchain community, featuring research papers, event coordination, and member networking. Showcasing African blockchain innovation through interactive content and educational resources for enthusiasts of all levels.",
+      technologies: ["React", "Next.js", "Tailwind CSS", "IPFS integration", "Community Platform"],
+      status: "Live",
+      link: "https://africasblockchainclub.vercel.app",
+      category: "web"
+    },
     {
       title: "BioHealthChain (Beta)",
       description: "A privacy-first healthcare data platform leveraging blockchain for secure, transparent medical records management. Enables patients to own their health data while providing healthcare providers with verifiable, tamper-proof medical histories through zero-knowledge proof technology.",
@@ -328,7 +328,11 @@ export default function ProjectsPage() {
               cursor: 'pointer',
               backdropFilter: 'blur(10px)',
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              display: 'flex',
+              flexDirection: 'column',
+              height: '480px', // Fixed height for all cards
+              minHeight: '480px'
             }} 
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)';
@@ -344,28 +348,13 @@ export default function ProjectsPage() {
             }}
             onClick={() => window.open(project.link, '_blank')}
             >
-              {project.featured && (
-                <div style={{
-                  position: 'absolute',
-                  top: '1rem',
-                  right: '1rem',
-                  background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
-                  color: '#000',
-                  padding: '0.25rem 0.75rem',
-                  borderRadius: '12px',
-                  fontSize: '0.7rem',
-                  fontWeight: '700',
-                  zIndex: 2
-                }}>
-                  ⭐ FEATURED
-                </div>
-              )}
-              
+              {/* Header Section */}
               <div style={{
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'flex-start',
-                marginBottom: '1rem'
+                marginBottom: '1rem',
+                flexShrink: 0
               }}>
                 <h3 style={{
                   fontSize: '1.5rem',
@@ -373,50 +362,68 @@ export default function ProjectsPage() {
                   color: isDarkMode ? '#f1f5f9' : '#2d3748',
                   margin: '0',
                   flex: '1',
-                  marginRight: '1rem'
+                  marginRight: '1rem',
+                  lineHeight: '1.3'
                 }}>
                   {project.title}
                 </h3>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
                   <StatusBadge status={project.status} />
                   <CategoryBadge category={project.category} />
                 </div>
               </div>
               
-              <p style={{
-                color: isDarkMode ? '#cbd5e1' : '#4a5568',
-                lineHeight: '1.6',
-                marginBottom: '1.5rem',
-                fontSize: '0.95rem'
-              }}>
-                {project.description}
-              </p>
-              
+              {/* Description Section */}
               <div style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '0.5rem',
-                marginBottom: '2rem'
+                flex: '1',
+                marginBottom: '1.5rem',
+                overflow: 'hidden'
               }}>
-                {project.technologies.map((tech, i) => (
-                  <span key={i} style={{
-                    background: isDarkMode ? 'rgba(102, 126, 234, 0.2)' : 'rgba(102, 126, 234, 0.1)',
-                    color: '#667eea',
-                    padding: '0.4rem 0.8rem',
-                    borderRadius: '12px',
-                    fontSize: '0.75rem',
-                    fontWeight: '600',
-                    border: `1px solid ${isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)'}`,
-                    backdropFilter: 'blur(10px)'
-                  }}>
-                    {tech}
-                  </span>
-                ))}
+                <p style={{
+                  color: isDarkMode ? '#cbd5e1' : '#4a5568',
+                  lineHeight: '1.6',
+                  fontSize: '0.95rem',
+                  margin: 0,
+                  display: '-webkit-box',
+                  WebkitLineClamp: 4,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden'
+                }}>
+                  {project.description}
+                </p>
               </div>
               
+              {/* Technologies Section */}
               <div style={{
-                display: 'flex',
-                justifyContent: 'flex-end'
+                marginBottom: '2rem',
+                flexShrink: 0
+              }}>
+                <div style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '0.5rem',
+                }}>
+                  {project.technologies.map((tech, i) => (
+                    <span key={i} style={{
+                      background: isDarkMode ? 'rgba(102, 126, 234, 0.2)' : 'rgba(102, 126, 234, 0.1)',
+                      color: '#667eea',
+                      padding: '0.4rem 0.8rem',
+                      borderRadius: '12px',
+                      fontSize: '0.75rem',
+                      fontWeight: '600',
+                      border: `1px solid ${isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)'}`,
+                      backdropFilter: 'blur(10px)'
+                    }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Button Section - Fixed at bottom */}
+              <div style={{
+                marginTop: 'auto',
+                flexShrink: 0
               }}>
                 <a 
                   href={project.link}
@@ -429,12 +436,15 @@ export default function ProjectsPage() {
                     transition: 'all 0.3s ease',
                     display: 'flex',
                     alignItems: 'center',
+                    justifyContent: 'center',
                     gap: '0.5rem',
                     background: isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)',
                     padding: '0.75rem 1.5rem',
                     borderRadius: '12px',
                     border: `1px solid ${isDarkMode ? 'rgba(102, 126, 234, 0.2)' : 'rgba(102, 126, 234, 0.1)'}`,
-                    fontSize: '0.9rem'
+                    fontSize: '0.9rem',
+                    width: '100%',
+                    textAlign: 'center'
                   }}
                   onClick={(e) => e.stopPropagation()}
                   onMouseEnter={(e) => {
@@ -514,6 +524,8 @@ export default function ProjectsPage() {
 
           .project-card {
             padding: 1.5rem !important;
+            height: auto !important;
+            min-height: 400px !important;
           }
         }
 
@@ -527,6 +539,11 @@ export default function ProjectsPage() {
             right: 1rem;
             padding: 0.4rem 0.8rem;
             font-size: 0.8rem;
+          }
+
+          .project-card {
+            padding: 1.25rem !important;
+            min-height: 380px !important;
           }
         }
       `}</style>
