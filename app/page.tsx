@@ -140,10 +140,6 @@ const LandingPage = () => {
           </div>
         </div>
         
-        <div className="scroll-indicator">
-          <span>Scroll to explore</span>
-          <div className="scroll-line"></div>
-        </div>
       </main>
     </div>
   );
