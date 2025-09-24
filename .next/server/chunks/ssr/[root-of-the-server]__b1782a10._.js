@@ -31,6 +31,7 @@ __turbopack_context__.s([
     ()=>__TURBOPACK__default__export__
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/styled-jsx/style.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
@@ -43,15 +44,31 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navi
 const LandingPage = ()=>{
     const [typedText, setTypedText] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
     const [currentWordIndex, setCurrentWordIndex] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [isDarkMode, setIsDarkMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const orbsRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])([]);
-    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])(); // Add this line
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const words = [
         'Developer',
-        'Researcher'
+        'Researcher',
+        'Innovator'
     ];
     const name = "Sandile Siwundla";
     const bio = "I create elegant solutions to complex problems through code and research. Passionate about pushing boundaries in software engineering and scientific discovery.";
+    // Toggle dark mode
+    const toggleDarkMode = ()=>{
+        setIsDarkMode(!isDarkMode);
+    };
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        // Apply dark mode class to body
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+    }, [
+        isDarkMode
+    ]);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const currentWord = words[currentWordIndex];
         if (typedText.length < currentWord.length) {
@@ -70,7 +87,60 @@ const LandingPage = ()=>{
         typedText,
         currentWordIndex
     ]);
-    // ... (rest of your useEffect for canvas animation remains the same)
+    // Floating orbs animation
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        const resizeCanvas = ()=>{
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        // Initialize orbs
+        const orbs = [];
+        const orbCount = 8;
+        for(let i = 0; i < orbCount; i++){
+            orbs.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 100 + 50,
+                speedX: (Math.random() - 0.5) * 0.5,
+                speedY: (Math.random() - 0.5) * 0.5,
+                opacity: Math.random() * 0.1 + 0.05,
+                color: isDarkMode ? `rgba(102, 126, 234, ${Math.random() * 0.3 + 0.1})` : `rgba(102, 126, 234, ${Math.random() * 0.2 + 0.05})`
+            });
+        }
+        orbsRef.current = orbs;
+        const animate = ()=>{
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            orbsRef.current.forEach((orb)=>{
+                // Update position
+                orb.x += orb.speedX;
+                orb.y += orb.speedY;
+                // Bounce off edges
+                if (orb.x <= 0 || orb.x >= canvas.width) orb.speedX *= -1;
+                if (orb.y <= 0 || orb.y >= canvas.height) orb.speedY *= -1;
+                // Draw orb
+                const gradient = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.size);
+                gradient.addColorStop(0, isDarkMode ? `rgba(102, 126, 234, ${orb.opacity})` : `rgba(102, 126, 234, ${orb.opacity * 0.5})`);
+                gradient.addColorStop(1, 'transparent');
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(orb.x, orb.y, orb.size, 0, 2 * Math.PI);
+                ctx.fill();
+            });
+            requestAnimationFrame(animate);
+        };
+        animate();
+        return ()=>{
+            window.removeEventListener('resize', resizeCanvas);
+        };
+    }, [
+        isDarkMode
+    ]);
     const handleDownloadCV = ()=>{
         const link = document.createElement('a');
         link.href = '/cv/SandileSiwundlaCV.pdf';
@@ -87,216 +157,870 @@ const LandingPage = ()=>{
         window.open('https://github.com/sandileSiwundla', '_blank');
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "landing-page",
+        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+            [
+                "17064b26b46e9945",
+                [
+                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                ]
+            ]
+        ]) + " " + `landing-page ${isDarkMode ? 'dark' : 'light'}`,
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
-                ref: canvasRef,
-                className: "floating-orbs"
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                onClick: toggleDarkMode,
+                "aria-label": isDarkMode ? 'Switch to light mode' : 'Switch to dark mode',
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                    [
+                        "17064b26b46e9945",
+                        [
+                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                        ]
+                    ]
+                ]) + " " + "dark-mode-toggle",
+                children: isDarkMode ? '☀️' : '🌙'
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 67,
+                lineNumber: 156,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
+                ref: canvasRef,
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                    [
+                        "17064b26b46e9945",
+                        [
+                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                        ]
+                    ]
+                ]) + " " + "floating-orbs"
+            }, void 0, false, {
+                fileName: "[project]/app/page.tsx",
+                lineNumber: 164,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
-                className: "main-content",
+                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                    [
+                        "17064b26b46e9945",
+                        [
+                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                        ]
+                    ]
+                ]) + " " + "main-content",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "content-wrapper",
+                    className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                        [
+                            "17064b26b46e9945",
+                            [
+                                isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                isDarkMode ? '#cbd5e1' : '#4a5568',
+                                isDarkMode ? '#cbd5e1' : '#4a5568',
+                                isDarkMode ? '#cbd5e1' : '#4a5568',
+                                isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                            ]
+                        ]
+                    ]) + " " + "content-wrapper",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "profile-section",
+                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                            [
+                                "17064b26b46e9945",
+                                [
+                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                ]
+                            ]
+                        ]) + " " + "profile-section",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "profile-image-container",
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                    [
+                                        "17064b26b46e9945",
+                                        [
+                                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                        ]
+                                    ]
+                                ]) + " " + "profile-image-container",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                         src: "/sandile.jpeg",
                                         alt: `Profile picture of ${name}`,
-                                        width: 280,
-                                        height: 280,
+                                        width: 320,
+                                        height: 320,
                                         className: "profile-image",
-                                        priority: true,
-                                        placeholder: "blur",
-                                        blurDataURL: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaUMk6objMpSlKKEgghI//Z"
+                                        priority: true
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
-                                        lineNumber: 73,
+                                        lineNumber: 170,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "image-glow"
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                            [
+                                                "17064b26b46e9945",
+                                                [
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                ]
+                                            ]
+                                        ]) + " " + "image-glow"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
-                                        lineNumber: 83,
+                                        lineNumber: 178,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/page.tsx",
-                                lineNumber: 72,
+                                lineNumber: 169,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "text-content",
+                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                    [
+                                        "17064b26b46e9945",
+                                        [
+                                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                        ]
+                                    ]
+                                ]) + " " + "text-content",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                        className: "name",
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                            [
+                                                "17064b26b46e9945",
+                                                [
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                ]
+                                            ]
+                                        ]) + " " + "name",
                                         children: name
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
-                                        lineNumber: 87,
+                                        lineNumber: 182,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "title-container",
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                            [
+                                                "17064b26b46e9945",
+                                                [
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                ]
+                                            ]
+                                        ]) + " " + "title-container",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "title-prefix",
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                    [
+                                                        "17064b26b46e9945",
+                                                        [
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                        ]
+                                                    ]
+                                                ]) + " " + "title-prefix",
                                                 children: "/ "
                                             }, void 0, false, {
                                                 fileName: "[project]/app/page.tsx",
-                                                lineNumber: 89,
+                                                lineNumber: 184,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "typed-title",
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                    [
+                                                        "17064b26b46e9945",
+                                                        [
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                        ]
+                                                    ]
+                                                ]) + " " + "typed-title",
                                                 children: typedText
                                             }, void 0, false, {
                                                 fileName: "[project]/app/page.tsx",
-                                                lineNumber: 90,
+                                                lineNumber: 185,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "cursor",
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                    [
+                                                        "17064b26b46e9945",
+                                                        [
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                        ]
+                                                    ]
+                                                ]) + " " + "cursor",
                                                 children: "|"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/page.tsx",
-                                                lineNumber: 91,
+                                                lineNumber: 186,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/page.tsx",
-                                        lineNumber: 88,
+                                        lineNumber: 183,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "bio",
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                            [
+                                                "17064b26b46e9945",
+                                                [
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                ]
+                                            ]
+                                        ]) + " " + "bio",
                                         children: bio
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.tsx",
-                                        lineNumber: 94,
+                                        lineNumber: 189,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "action-buttons",
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                            [
+                                                "17064b26b46e9945",
+                                                [
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                ]
+                                            ]
+                                        ]) + " " + "action-buttons",
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                className: "minimal-button primary",
                                                 onClick: handleDownloadCV,
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                    [
+                                                        "17064b26b46e9945",
+                                                        [
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                        ]
+                                                    ]
+                                                ]) + " " + "minimal-button primary",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "button-icon",
+                                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                            [
+                                                                "17064b26b46e9945",
+                                                                [
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                                ]
+                                                            ]
+                                                        ]) + " " + "button-icon",
                                                         children: "📄"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.tsx",
-                                                        lineNumber: 101,
+                                                        lineNumber: 196,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     "Download CV"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.tsx",
-                                                lineNumber: 97,
+                                                lineNumber: 192,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                className: "minimal-button secondary",
                                                 onClick: handleViewProjects,
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                    [
+                                                        "17064b26b46e9945",
+                                                        [
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                        ]
+                                                    ]
+                                                ]) + " " + "minimal-button secondary",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "button-icon",
+                                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                            [
+                                                                "17064b26b46e9945",
+                                                                [
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                                ]
+                                                            ]
+                                                        ]) + " " + "button-icon",
                                                         children: "🚀"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.tsx",
-                                                        lineNumber: 108,
+                                                        lineNumber: 203,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     "View Projects"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.tsx",
-                                                lineNumber: 104,
+                                                lineNumber: 199,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                className: "minimal-button tertiary",
-                                                onClick: handleViewWebsite,
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "button-icon",
-                                                        children: "💻"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/page.tsx",
-                                                        lineNumber: 115,
-                                                        columnNumber: 19
-                                                    }, ("TURBOPACK compile-time value", void 0)),
-                                                    "GitHub"
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/page.tsx",
-                                                lineNumber: 111,
-                                                columnNumber: 17
-                                            }, ("TURBOPACK compile-time value", void 0)),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                className: "minimal-button secondary",
                                                 onClick: handleViewPapers,
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                    [
+                                                        "17064b26b46e9945",
+                                                        [
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                        ]
+                                                    ]
+                                                ]) + " " + "minimal-button tertiary",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                        className: "button-icon",
-                                                        children: "🚀"
+                                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                            [
+                                                                "17064b26b46e9945",
+                                                                [
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                                ]
+                                                            ]
+                                                        ]) + " " + "button-icon",
+                                                        children: "📚"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.tsx",
-                                                        lineNumber: 122,
+                                                        lineNumber: 210,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     "View Papers"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.tsx",
-                                                lineNumber: 118,
+                                                lineNumber: 206,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                onClick: handleViewWebsite,
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                    [
+                                                        "17064b26b46e9945",
+                                                        [
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                        ]
+                                                    ]
+                                                ]) + " " + "minimal-button quaternary",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                            [
+                                                                "17064b26b46e9945",
+                                                                [
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                                ]
+                                                            ]
+                                                        ]) + " " + "button-icon",
+                                                        children: "💻"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/page.tsx",
+                                                        lineNumber: 217,
+                                                        columnNumber: 19
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    "GitHub"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/page.tsx",
+                                                lineNumber: 213,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/page.tsx",
-                                        lineNumber: 96,
+                                        lineNumber: 191,
+                                        columnNumber: 15
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                            [
+                                                "17064b26b46e9945",
+                                                [
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                ]
+                                            ]
+                                        ]) + " " + "social-links",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                href: "https://www.linkedin.com/in/sandile-siwundla-51b0b5307/",
+                                                target: "_blank",
+                                                rel: "noopener noreferrer",
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                    [
+                                                        "17064b26b46e9945",
+                                                        [
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                        ]
+                                                    ]
+                                                ]),
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                            [
+                                                                "17064b26b46e9945",
+                                                                [
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                                ]
+                                                            ]
+                                                        ]) + " " + "social-icon",
+                                                        children: "💼"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/page.tsx",
+                                                        lineNumber: 225,
+                                                        columnNumber: 19
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    "LinkedIn"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/page.tsx",
+                                                lineNumber: 224,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                href: "https://x.com/San_Olivegarden",
+                                                target: "_blank",
+                                                rel: "noopener noreferrer",
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                    [
+                                                        "17064b26b46e9945",
+                                                        [
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                        ]
+                                                    ]
+                                                ]),
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                            [
+                                                                "17064b26b46e9945",
+                                                                [
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                                ]
+                                                            ]
+                                                        ]) + " " + "social-icon",
+                                                        children: "🐦"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/page.tsx",
+                                                        lineNumber: 229,
+                                                        columnNumber: 19
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    "Twitter"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/page.tsx",
+                                                lineNumber: 228,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                href: "mailto:sandilemsiwundla@gmail.com",
+                                                className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                    [
+                                                        "17064b26b46e9945",
+                                                        [
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                            isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                            isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                            isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                            isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                        ]
+                                                    ]
+                                                ]),
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].dynamic([
+                                                            [
+                                                                "17064b26b46e9945",
+                                                                [
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                                                                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                                                                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                                                                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                                                                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                                                                ]
+                                                            ]
+                                                        ]) + " " + "social-icon",
+                                                        children: "✉️"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/page.tsx",
+                                                        lineNumber: 233,
+                                                        columnNumber: 19
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    "Email"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/page.tsx",
+                                                lineNumber: 232,
+                                                columnNumber: 17
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/page.tsx",
+                                        lineNumber: 223,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/page.tsx",
-                                lineNumber: 86,
+                                lineNumber: 181,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/page.tsx",
-                        lineNumber: 71,
+                        lineNumber: 168,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/app/page.tsx",
-                    lineNumber: 70,
+                    lineNumber: 167,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
-                lineNumber: 69,
+                lineNumber: 166,
                 columnNumber: 7
-            }, ("TURBOPACK compile-time value", void 0))
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                id: "17064b26b46e9945",
+                dynamic: [
+                    isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)',
+                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                    isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)',
+                    isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)',
+                    isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)',
+                    isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)',
+                    isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)',
+                    isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)',
+                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                    isDarkMode ? '#cbd5e1' : '#4a5568',
+                    isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'
+                ],
+                children: `.landing-page.__jsx-style-dynamic-selector{min-height:100vh;transition:all .3s;position:relative}.landing-page.light.__jsx-style-dynamic-selector{color:#2d3748;background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 100%)}.landing-page.dark.__jsx-style-dynamic-selector{color:#f1f5f9;background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%)}.dark-mode-toggle.__jsx-style-dynamic-selector{background:${isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(102, 126, 234, 0.1)'};border:1px solid ${isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)'};cursor:pointer;backdrop-filter:blur(10px);z-index:1000;border-radius:50%;width:50px;height:50px;font-size:1.2rem;transition:all .3s;position:fixed;top:2rem;right:2rem}.dark-mode-toggle.__jsx-style-dynamic-selector:hover{background:${isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(102, 126, 234, 0.2)'};transform:scale(1.1)}.floating-orbs.__jsx-style-dynamic-selector{pointer-events:none;width:100%;height:100%;position:fixed;top:0;left:0}.main-content.__jsx-style-dynamic-selector{z-index:10;justify-content:center;align-items:center;min-height:100vh;padding:2rem;display:flex;position:relative}.content-wrapper.__jsx-style-dynamic-selector{width:100%;max-width:1200px}.profile-section.__jsx-style-dynamic-selector{grid-template-columns:auto 1fr;align-items:center;gap:4rem;display:grid}.profile-image-container.__jsx-style-dynamic-selector{justify-content:center;display:flex;position:relative}.profile-image.__jsx-style-dynamic-selector{object-fit:cover;border:4px solid ${isDarkMode ? 'rgba(102, 126, 234, 0.3)' : 'rgba(102, 126, 234, 0.2)'};width:320px;height:320px;box-shadow:0 20px 40px ${isDarkMode ? 'rgba(0, 0, 0, 0.3)' : 'rgba(0, 0, 0, 0.1)'};border-radius:20px;transition:all .3s}.profile-image.__jsx-style-dynamic-selector:hover{border-color:${isDarkMode ? 'rgba(102, 126, 234, 0.6)' : 'rgba(102, 126, 234, 0.4)'};transform:scale(1.02)}.image-glow.__jsx-style-dynamic-selector{background:${isDarkMode ? 'radial-gradient(circle, rgba(102, 126, 234, 0.3) 0%, transparent 70%)' : 'radial-gradient(circle, rgba(102, 126, 234, 0.2) 0%, transparent 70%)'};filter:blur(20px);z-index:-1;border-radius:25px;width:340px;height:340px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}.text-content.__jsx-style-dynamic-selector{max-width:600px}.name.__jsx-style-dynamic-selector{background:${isDarkMode ? 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)' : 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)'};-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem;font-size:3.5rem;font-weight:700}.title-container.__jsx-style-dynamic-selector{color:${isDarkMode ? '#cbd5e1' : '#4a5568'};margin-bottom:2rem;font-size:2rem}.typed-title.__jsx-style-dynamic-selector{color:#667eea;font-weight:600}.cursor.__jsx-style-dynamic-selector{color:#667eea;animation:1s infinite blink}@keyframes blink{0%,50%{opacity:1}51%,to{opacity:0}}.bio.__jsx-style-dynamic-selector{color:${isDarkMode ? '#cbd5e1' : '#4a5568'};margin-bottom:3rem;font-size:1.2rem;line-height:1.6}.action-buttons.__jsx-style-dynamic-selector{flex-wrap:wrap;gap:1rem;margin-bottom:2rem;display:flex}.minimal-button.__jsx-style-dynamic-selector{cursor:pointer;border:2px solid;border-radius:12px;align-items:center;gap:.5rem;padding:1rem 2rem;font-size:1rem;font-weight:600;text-decoration:none;transition:all .3s;display:flex}.minimal-button.primary.__jsx-style-dynamic-selector{color:#fff;background:#667eea;border-color:#667eea}.minimal-button.primary.__jsx-style-dynamic-selector:hover{background:#5a6fd8;transform:translateY(-2px);box-shadow:0 10px 20px #667eea4d}.minimal-button.secondary.__jsx-style-dynamic-selector{color:#48bb78;background:0 0;border-color:#48bb78}.minimal-button.secondary.__jsx-style-dynamic-selector:hover{color:#fff;background:#48bb78;transform:translateY(-2px);box-shadow:0 10px 20px #48bb784d}.minimal-button.tertiary.__jsx-style-dynamic-selector{color:#ed8936;background:0 0;border-color:#ed8936}.minimal-button.tertiary.__jsx-style-dynamic-selector:hover{color:#fff;background:#ed8936;transform:translateY(-2px);box-shadow:0 10px 20px #ed89364d}.minimal-button.quaternary.__jsx-style-dynamic-selector{color:#9f7aea;background:0 0;border-color:#9f7aea}.minimal-button.quaternary.__jsx-style-dynamic-selector:hover{color:#fff;background:#9f7aea;transform:translateY(-2px);box-shadow:0 10px 20px #9f7aea4d}.button-icon.__jsx-style-dynamic-selector{font-size:1.2rem}.social-links.__jsx-style-dynamic-selector{flex-wrap:wrap;gap:1.5rem;display:flex}.social-links.__jsx-style-dynamic-selector a.__jsx-style-dynamic-selector{color:${isDarkMode ? '#cbd5e1' : '#4a5568'};border-radius:8px;align-items:center;gap:.5rem;padding:.5rem 1rem;text-decoration:none;transition:all .3s;display:flex}.social-links.__jsx-style-dynamic-selector a.__jsx-style-dynamic-selector:hover{color:#667eea;background:${isDarkMode ? 'rgba(102, 126, 234, 0.1)' : 'rgba(102, 126, 234, 0.05)'};transform:translateY(-1px)}.social-icon.__jsx-style-dynamic-selector{font-size:1.1rem}@media (width<=968px){.profile-section.__jsx-style-dynamic-selector{text-align:center;grid-template-columns:1fr;gap:2rem}.profile-image.__jsx-style-dynamic-selector{width:280px;height:280px}.image-glow.__jsx-style-dynamic-selector{width:300px;height:300px}.name.__jsx-style-dynamic-selector{font-size:2.5rem}.title-container.__jsx-style-dynamic-selector{font-size:1.5rem}.action-buttons.__jsx-style-dynamic-selector,.social-links.__jsx-style-dynamic-selector{justify-content:center}}@media (width<=640px){.main-content.__jsx-style-dynamic-selector{padding:1rem}.name.__jsx-style-dynamic-selector{font-size:2rem}.title-container.__jsx-style-dynamic-selector{font-size:1.2rem}.bio.__jsx-style-dynamic-selector{font-size:1rem}.action-buttons.__jsx-style-dynamic-selector{flex-direction:column;align-items:center}.minimal-button.__jsx-style-dynamic-selector{justify-content:center;width:100%;max-width:300px}}`
+            }, void 0, false, void 0, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/page.tsx",
-        lineNumber: 66,
+        lineNumber: 154,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
