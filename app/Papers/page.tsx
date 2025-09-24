@@ -38,7 +38,7 @@ export default function ResearchPapersPage() {
     {
       id: 4,
       title: "The Breach That Rocked the Crypto World: Bybit's $1.5 Billion Heist",
-      description: "A detailed case study of the sophisticated cyberattack on Bybit exchange. This research analyzes the security vulnerabilities, response mechanisms, and lessons learned from one of the largest crypto breaches in history.",
+      description: "On February 21st, 2025, 14:13:35 UTC Bybit fell victim to a sophisticated cyberattack that resulted in the theft of over 400,000 ETH — valued at nearly $1.5 billion at the time -unraveling critical questions about security in the DeFi space.",
       date: "2025-04-24",
       readTime: 6
     }
