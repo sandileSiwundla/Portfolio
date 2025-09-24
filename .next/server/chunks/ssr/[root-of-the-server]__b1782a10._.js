@@ -50,8 +50,7 @@ const LandingPage = ()=>{
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const words = [
         'Developer',
-        'Researcher',
-        'Innovator'
+        'Researcher'
     ];
     const name = "Sandile Siwundla";
     const bio = "I create elegant solutions to complex problems through code and research. Passionate about pushing boundaries in software engineering and scientific discovery.";

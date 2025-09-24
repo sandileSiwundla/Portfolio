@@ -22,7 +22,7 @@ const LandingPage = () => {
   const orbsRef = useRef<FloatingOrb[]>([]);
   const router = useRouter();
   
-  const words = ['Developer', 'Researcher', 'Innovator'];
+  const words = ['Developer', 'Researcher'];
   const name = "Sandile Siwundla";
   const bio = "I create elegant solutions to complex problems through code and research. Passionate about pushing boundaries in software engineering and scientific discovery.";
 
