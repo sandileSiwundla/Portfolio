@@ -22,9 +22,9 @@ const LandingPage = () => {
   const elementsRef = useRef<FloatingElement[]>([]);
   const router = useRouter();
   
-  const words = ['Developer', 'Researcher', 'Innovator'];
+  const words = ['Developer', 'Researcher'];
   const name = "Sandile Siwundla";
-  const bio = "I create elegant solutions to complex problems through code and research. Passionate about pushing boundaries in software engineering and scientific discovery.";
+  const bio = "I create elegant solutions to complex problems through code and research. Passionate about pushing boundaries in software engineering.";
 
   useEffect(() => {
     setMounted(true);
