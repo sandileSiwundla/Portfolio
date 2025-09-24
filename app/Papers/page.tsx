@@ -9,6 +9,7 @@ interface Paper {
   date: string;
   readTime: number;
   isPinned?: boolean;
+  mediumLink: string;
 }
 
 export default function ResearchPapersPage() {
@@ -16,33 +17,43 @@ export default function ResearchPapersPage() {
     {
       id: 1,
       title: "Unlocking Value in Web3 Gaming",
-      description: "A comprehensive analysis of value creation mechanisms in Web3 gaming ecosystems. This research explores how blockchain technology is revolutionizing the gaming industry through true digital ownership, play-to-earn models, and decentralized economies.",
+      description: "The gaming world is entering an exciting new phase with the rise of Web3 technologies, especially through GameFi — a mix of online gaming and decentralised finance (DeFi). Picture yourself in a colourful world where blockchain and NFTs aren't just fancy words but tools for your adventure! This article will show how Web3 gaming is changing the scene, giving players true ownership of their digital items. Explore play-to-earn (P2E) games that reward your skills and creativity and take part in community-led decision-making that lets you help shape your gaming world.",
       date: "2024-11-24",
       readTime: 9,
-      isPinned: true
+      isPinned: true,
+      mediumLink: "https://medium.com/@yourusername/unlocking-value-in-web3-gaming"
     },
     {
       id: 2,
       title: "CEX or DEX? The FTX Collapse Disruption",
-      description: "An in-depth examination of centralized vs decentralized exchange dynamics following the FTX collapse. This paper analyzes the security, transparency, and resilience implications for the cryptocurrency trading landscape.",
+      description: "The shocking downfall of a crypto trading platform called FTX Trading Ltd, amidst allegations of insider trading and fraud, exposed the vulnerabilities such as lack of transparency, and misuse of customer funds in centralised exchanges (CEXs). This event has highlighted the importance of using blockchain technology to aid transparency and accountability, two key traits inherent to decentralised exchanges (DEXs).",
       date: "2024-08-01",
-      readTime: 8
+      readTime: 8,
+      mediumLink: "https://medium.com/@yourusername/cex-or-dex-the-ftx-collapse-disruption"
     },
     {
       id: 3,
       title: "Kaito AI: Turning Crypto Knowledge into Earnings",
-      description: "Exploring how artificial intelligence is transforming cryptocurrency research and investment strategies. This study covers Kaito AI's innovative approach to data analysis and market insights in the blockchain space.",
+      description: "Kaito AI, a Web3 intelligence platform, is transforming how we access and use crypto information by combining artificial intelligence and blockchain technology. Founded in 2022 by Yu Hu (ex-Citadel portfolio manager, now CEO) and Yunzhong He in Seattle, USA, the platform is built on Base. While it operates in a competitive space alongside platforms like CoinGecko, Coin Metrics, and Covalent, Kaito stands out by blending AI-driven search, real-time analytics, and tokenized incentives into a single, seamless ecosystem.",
       date: "2025-09-06",
-      readTime: 9
+      readTime: 9,
+      mediumLink: "https://medium.com/@yourusername/kaito-ai-turning-crypto-knowledge-into-earnings"
     },
     {
       id: 4,
       title: "The Breach That Rocked the Crypto World: Bybit's $1.5 Billion Heist",
       description: "On February 21st, 2025, 14:13:35 UTC Bybit fell victim to a sophisticated cyberattack that resulted in the theft of over 400,000 ETH — valued at nearly $1.5 billion at the time -unraveling critical questions about security in the DeFi space.",
       date: "2025-04-24",
-      readTime: 6
+      readTime: 6,
+      mediumLink: "https://medium.com/@yourusername/the-breach-that-rocked-the-crypto-world-bybits-heist"
     }
   ];
+
+  // Function to limit description to 150 characters
+  const truncateDescription = (description: string, maxLength: number = 150) => {
+    if (description.length <= maxLength) return description;
+    return description.substring(0, maxLength) + '...';
+  };
 
   const StatusBadge = ({ status, readTime }: { status: string; readTime: number }) => {
     const statusConfig = {
@@ -159,7 +170,7 @@ export default function ResearchPapersPage() {
             margin: '0 auto',
             lineHeight: '1.6'
           }}>
-            Cutting-edge analysis in Web3, DeFi, and blockchain security
+            Analysis in Web3, DeFi, and blockchain security
           </p>
         </header>
 
@@ -188,6 +199,7 @@ export default function ResearchPapersPage() {
               e.currentTarget.style.transform = 'translateY(0)';
               e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1)';
             }}
+            onClick={() => window.open(paper.mediumLink, '_blank')}
             >
               {/* Paper Header */}
               <div style={{
@@ -229,9 +241,11 @@ export default function ResearchPapersPage() {
               <p style={{
                 color: '#4a5568',
                 lineHeight: '1.6',
-                marginBottom: '1.5rem'
+                marginBottom: '1.5rem',
+                height: '4.8em', // Approximately 3 lines of text
+                overflow: 'hidden'
               }}>
-                {paper.description}
+                {truncateDescription(paper.description, 150)}
               </p>
               
               {/* Action */}
@@ -252,6 +266,10 @@ export default function ResearchPapersPage() {
                   alignItems: 'center',
                   gap: '0.5rem'
                 }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(paper.mediumLink, '_blank');
+                }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = '#667eea';
                   e.currentTarget.style.color = 'white';
@@ -263,7 +281,7 @@ export default function ResearchPapersPage() {
                   e.currentTarget.style.gap = '0.5rem';
                 }}
                 >
-                  Read Paper →
+                  Read  →
                 </button>
               </div>
             </div>
@@ -271,18 +289,7 @@ export default function ResearchPapersPage() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer style={{
-        textAlign: 'center',
-        padding: '2rem',
-        marginTop: '4rem',
-        color: '#a0aec0',
-        borderTop: '1px solid #e2e8f0'
-      }}>
-        <p style={{ margin: 0 }}>
-          © {new Date().getFullYear()} Research Papers. All rights reserved.
-        </p>
-      </footer>
+
     </div>
   );
 }

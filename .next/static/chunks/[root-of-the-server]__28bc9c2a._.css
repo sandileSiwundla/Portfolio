@@ -516,6 +516,10 @@
     display: grid;
   }
 
+  .hidden {
+    display: none;
+  }
+
   .inline-flex {
     display: inline-flex;
   }
