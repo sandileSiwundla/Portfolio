@@ -114,28 +114,6 @@ const LandingPage = () => {
                 </button>
               </div>
 
-              {/* Quick project links */}
-              <div className="quick-links">
-                <h3>Featured Projects:</h3>
-                <div className="project-links">
-                  <a 
-                    href="https://africasblockchainclub.vercel.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="project-link"
-                  >
-                    ABC Website ›
-                  </a>
-                  <a 
-                    href="https://bio-health-chain-4.vercel.app" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="project-link"
-                  >
-                    BioHealthChain ›
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
