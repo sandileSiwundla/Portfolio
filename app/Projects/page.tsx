@@ -20,6 +20,14 @@ export default function ProjectsPage() {
 
   const projects = [
     {
+      title: "Africa's Blockchain Club Hub",
+      description: "The official platform for Africa's leading blockchain community, featuring research papers, event coordination, and member networking. Showcasing African blockchain innovation through interactive content and educational resources for enthusiasts of all levels.",
+      technologies: ["React", "Next.js", "Tailwind CSS", "IPFS integration", "Community Platform"],
+      status: "Live",
+      link: "https://africasblockchainclub.com/",
+      category: "web"
+    },
+    {
       title: "Charity NFT",
       description: "A Web3 platform leveraging account abstraction for gasless transactions and social logins. Each NFT purchase automatically donates to verified charities, combining digital art collection with real-world impact through smart contract automation.",
       technologies: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll Blockchain", "ERC-721", "Social Logins", "Paymaster"],
@@ -27,14 +35,7 @@ export default function ProjectsPage() {
       link: "https://nft-app-dun-six.vercel.app",
       category: "blockchain",
     },
-    {
-      title: "Africa's Blockchain Club Hub",
-      description: "The official platform for Africa's leading blockchain community, featuring research papers, event coordination, and member networking. Showcasing African blockchain innovation through interactive content and educational resources for enthusiasts of all levels.",
-      technologies: ["React", "Next.js", "Tailwind CSS", "IPFS integration", "Community Platform"],
-      status: "Live",
-      link: "https://africasblockchainclub.vercel.app",
-      category: "web"
-    },
+    
     {
       title: "BioHealthChain (Beta)",
       description: "A privacy-first healthcare data platform leveraging blockchain for secure, transparent medical records management. Enables patients to own their health data while providing healthcare providers with verifiable, tamper-proof medical histories through zero-knowledge proof technology.",

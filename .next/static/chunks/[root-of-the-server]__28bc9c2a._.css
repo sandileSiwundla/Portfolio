@@ -514,10 +514,6 @@
 @layer components;
 
 @layer utilities {
-  .absolute {
-    position: absolute;
-  }
-
   .fixed {
     position: fixed;
   }

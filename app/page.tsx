@@ -204,32 +204,32 @@ const LandingPage = () => {
               {/* Clean Action Buttons */}
               <div className="action-buttons">
                 <button className="btn btn-primary" onClick={handleDownloadCV}>
-                  📄 Download CV
+                  Download CV
                 </button>
                 
                 <button className="btn btn-secondary" onClick={handleViewProjects}>
-                  🚀 Projects
+                  Projects
                 </button>
                 
                 <button className="btn btn-accent" onClick={handleViewPapers}>
-                  📚 Research
+                  Research
                 </button>
                 
                 <button className="btn btn-tertiary" onClick={handleViewWebsite}>
-                  💻 GitHub
+                  GitHub
                 </button>
               </div>
 
               {/* Simple Social Links */}
               <div className="social-links">
                 <a href="https://www.linkedin.com/in/sandile-siwundla-51b0b5307/" target="_blank" rel="noopener noreferrer">
-                  💼 LinkedIn
+                  LinkedIn
                 </a>
                 <a href="https://x.com/San_Olivegarden" target="_blank" rel="noopener noreferrer">
-                  🐦 Twitter
+                  Twitter
                 </a>
                 <a href="mailto:sandilemsiwundla@gmail.com">
-                  ✉️ Email
+                  Email
                 </a>
               </div>
             </div>
@@ -246,8 +246,8 @@ const LandingPage = () => {
         }
 
         .landing-page.light {
-          background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
-          color: #1e293b;
+          background: linear-gradient(135deg, #85b6e6 0%, #87b7e6 50%, #4a8ee6 100%);
+          color: #020a16;
         }
 
         .landing-page.dark {
@@ -365,18 +365,18 @@ const LandingPage = () => {
 
         .title-container {
           font-size: 1.8rem;
-          color: ${isDarkMode ? '#cbd5e1' : '#64748b'};
+          color: ${isDarkMode ? '#cbd5e1' : '#0a0f17'};
           font-weight: 300;
         }
 
         .typed-title {
-          color: ${isDarkMode ? '#667eea' : '#4f46e5'};
+          color: ${isDarkMode ? '#667eea' : '#040311'};
           font-weight: 600;
         }
 
         .cursor {
           animation: blink 1.2s infinite;
-          color: ${isDarkMode ? '#667eea' : '#4f46e5'};
+          color: ${isDarkMode ? '#667eea' : '#06051a'};
         }
 
         @keyframes blink {
@@ -388,7 +388,7 @@ const LandingPage = () => {
           font-size: 1.2rem;
           line-height: 1.6;
           margin-bottom: 2.5rem;
-          color: ${isDarkMode ? '#cbd5e1' : '#64748b'};
+          color: ${isDarkMode ? '#cbd5e1' : '#04080f'};
         }
 
         .action-buttons {
@@ -420,7 +420,7 @@ const LandingPage = () => {
         }
 
         .btn-secondary {
-          background: ${isDarkMode ? 'rgba(72, 187, 120, 0.1)' : 'rgba(72, 187, 120, 0.05)'};
+          background: ${isDarkMode ? 'rgba(72, 187, 120, 0.1)' : 'rgba(3, 55, 25, 0.05)'};
           color: #48bb78;
           border: 1px solid #48bb78;
         }

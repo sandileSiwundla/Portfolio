@@ -37,6 +37,15 @@ export default function ResearchPapersPage() {
   const papers: Paper[] = [
     {
       id: 1,
+      title: "Pendle Finance: Redefining Yield in DeFi",
+      description: "This paper explains how Pendle Finance transforms traditional yield-bearing crypto assets by separating them into two tradeable components: principal and future yield. By splitting assets into Principal Tokens (PT) and Yield Tokens (YT), Pendle enables users to manage, trade, and hedge yield independently from capital.",
+      date: "2024-10-25",
+      readTime: 11,
+      isPinned: true,
+      mediumLink: "https://medium.com/@africablockchainclub/pendle-finance-redefining-yield-in-defi-d02f9ea0492d"
+    },
+    {
+      id: 2,
       title: "Unlocking Value in Web3 Gaming",
       description: "The gaming world is entering an exciting new phase with the rise of Web3 technologies, especially through GameFi — a mix of online gaming and decentralised finance (DeFi). Picture yourself in a colourful world where blockchain and NFTs aren't just fancy words but tools for your adventure! This article will show how Web3 gaming is changing the scene, giving players true ownership of their digital items. Explore play-to-earn (P2E) games that reward your skills and creativity and take part in community-led decision-making that lets you help shape your gaming world.",
       date: "2024-11-24",
@@ -45,7 +54,7 @@ export default function ResearchPapersPage() {
       mediumLink: "https://medium.com/@africablockchainclub/unlocking-value-in-web3-gaming-e92401d553ff"
     },
     {
-      id: 2,
+      id: 3,
       title: "CEX or DEX? The FTX Collapse Disruption",
       description: "The shocking downfall of a crypto trading platform called FTX Trading Ltd, amidst allegations of insider trading and fraud, exposed the vulnerabilities such as lack of transparency, and misuse of customer funds in centralised exchanges (CEXs). This event has highlighted the importance of using blockchain technology to aid transparency and accountability, two key traits inherent to decentralised exchanges (DEXs).",
       date: "2024-08-01",
@@ -53,7 +62,7 @@ export default function ResearchPapersPage() {
       mediumLink: "https://medium.com/@africablockchainclub/cex-or-dex-the-ftx-collapse-disruption-f20a863f416a"
     },
     {
-      id: 3,
+      id: 4,
       title: "Kaito AI: Turning Crypto Knowledge into Earnings",
       description: "Kaito AI, a Web3 intelligence platform, is transforming how we access and use crypto information by combining artificial intelligence and blockchain technology. Founded in 2022 by Yu Hu (ex-Citadel portfolio manager, now CEO) and Yunzhong He in Seattle, USA, the platform is built on Base. While it operates in a competitive space alongside platforms like CoinGecko, Coin Metrics, and Covalent, Kaito stands out by blending AI-driven search, real-time analytics, and tokenized incentives into a single, seamless ecosystem.",
       date: "2025-09-06",
@@ -61,7 +70,7 @@ export default function ResearchPapersPage() {
       mediumLink: "https://medium.com/@africablockchainclub/kaito-ai-turning-crypto-knowledge-into-earnings-493dc8cd1ba0"
     },
     {
-      id: 4,
+      id: 5,
       title: "The Breach That Rocked the Crypto World: Bybit's $1.5 Billion Heist",
       description: "On February 21st, 2025, 14:13:35 UTC Bybit fell victim to a sophisticated cyberattack that resulted in the theft of over 400,000 ETH — valued at nearly $1.5 billion at the time -unraveling critical questions about security in the DeFi space.",
       date: "2025-04-24",
@@ -70,7 +79,6 @@ export default function ResearchPapersPage() {
     }
   ];
 
-  // Function to limit description to 150 characters
   const truncateDescription = (description: string, maxLength: number = 150) => {
     if (description.length <= maxLength) return description;
     return description.substring(0, maxLength) + '...';
