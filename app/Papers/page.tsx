@@ -17,7 +17,6 @@ export default function ResearchPapersPage() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    // Check system preference or saved preference
     const savedMode = localStorage.getItem('darkMode');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
@@ -41,7 +40,6 @@ export default function ResearchPapersPage() {
       description: "This paper explains how Pendle Finance transforms traditional yield-bearing crypto assets by separating them into two tradeable components: principal and future yield. By splitting assets into Principal Tokens (PT) and Yield Tokens (YT), Pendle enables users to manage, trade, and hedge yield independently from capital.",
       date: "2024-10-25",
       readTime: 11,
-      isPinned: true,
       mediumLink: "https://medium.com/@africablockchainclub/pendle-finance-redefining-yield-in-defi-d02f9ea0492d"
     },
     {
@@ -50,7 +48,6 @@ export default function ResearchPapersPage() {
       description: "The gaming world is entering an exciting new phase with the rise of Web3 technologies, especially through GameFi — a mix of online gaming and decentralised finance (DeFi). Picture yourself in a colourful world where blockchain and NFTs aren't just fancy words but tools for your adventure! This article will show how Web3 gaming is changing the scene, giving players true ownership of their digital items. Explore play-to-earn (P2E) games that reward your skills and creativity and take part in community-led decision-making that lets you help shape your gaming world.",
       date: "2024-11-24",
       readTime: 9,
-      isPinned: true,
       mediumLink: "https://medium.com/@africablockchainclub/unlocking-value-in-web3-gaming-e92401d553ff"
     },
     {
@@ -76,7 +73,34 @@ export default function ResearchPapersPage() {
       date: "2025-04-24",
       readTime: 6,
       mediumLink: "https://medium.com/@africablockchainclub/the-breach-that-rocked-the-crypto-world-bybits-1-5-billion-heist-9a1b0d50ebd3"
-    }
+    },    
+    {
+      id: 6,
+      title: "x402: The Payment Protocol for AI Agents",
+      description: "x402 is a payment protocol that lets AI agents and humans make fast, automated, per-request payments online. It replaces slow, costly systems like subscriptions, credit cards, and API keys by embedding payments into web requests using stablecoins. x402 enables secure, instant transactions, agent-to-agent payments, marketplaces, and trust via verifiable identities, turning software into autonomous economic actors.",
+      date: "2026-3-28",
+      readTime: 12,
+      isPinned: true,
+      mediumLink: "https://medium.com/@africablockchainclub/x402-the-payment-protocol-for-ai-agents-6caf81f22e8c"
+    },
+    {
+      id: 7,
+      title: "Aster: The Hyperliquid Killer?",
+      description: "This paper compares Hyperliquid and Aster, two leading perp DEXs with contrasting approaches: Hyperliquid prioritizes speed and performance, while Aster focuses on multi-chain liquidity and innovation. While Hyperliquid leads, Aster is a rising challenger, and their rivalry highlights evolving paths for the future of DeFi.",
+      date: "2026-2-11",
+      readTime: 16,
+      isPinned: true,
+      mediumLink: "https://medium.com/@africablockchainclub/aster-the-hyperliquid-killer-4904c3b832c3"
+    },
+    {
+      id: 8,
+      title: "The Evolution of AI: From Prediction to Execution",
+      description: "This article traces AI’s evolution from simple prediction to autonomous action. Early models like GPT were sophisticated guessers, generating text from patterns without real understanding. Later, AI gained tools to fetch real data and perform tasks reliably. The latest autonomous agents integrate memory, planning, and goal-driven workflows, moving AI from reactive prediction to proactive, self-directed action.",
+      date: "2026-3-7",
+      readTime: 18,
+      isPinned: true,
+      mediumLink: "https://medium.com/@africablockchainclub/the-evolution-of-ai-from-prediction-to-execution-f37c9ec866c6"
+    },
   ];
 
   const truncateDescription = (description: string, maxLength: number = 150) => {
@@ -150,6 +174,12 @@ export default function ResearchPapersPage() {
     if (title.includes('breach') || title.includes('Heist') || title.includes('Bybit')) return '🔐';
     return '📄';
   };
+
+  const sortedPapers = [...papers].sort((a, b) => {
+    if (a.isPinned && !b.isPinned) return -1;
+    if (!a.isPinned && b.isPinned) return 1;
+    return 0;
+  });
 
   return (
     <div className={`projects-page ${isDarkMode ? 'dark' : 'light'}`}>
@@ -239,7 +269,7 @@ export default function ResearchPapersPage() {
           gap: '2rem',
           marginBottom: '3rem'
         }}>
-          {papers.map((paper, index) => (
+          {sortedPapers.map((paper, index) => (
             <div key={index} style={{
               background: isDarkMode ? 'rgba(30, 41, 59, 0.5)' : 'white',
               borderRadius: '12px',

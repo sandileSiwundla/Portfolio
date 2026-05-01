@@ -18,33 +18,48 @@ export default function ProjectsPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const elementsRef = useRef<FloatingElement[]>([]);
 
-  const projects = [
+const projects = [
+  {
+    title: "Africa's Blockchain Club Hub",
+    description: "The official platform for Africa's leading blockchain community, featuring research, events, and member engagement. Showcases African blockchain innovation through educational content and interactive experiences.",
+    technologies: ["React", "Next.js", "Tailwind CSS", "IPFS", "Community Platform"],
+    status: "Live",
+    link: "https://africasblockchainclub.com/",
+    category: "web"
+  },
     {
-      title: "Africa's Blockchain Club Hub",
-      description: "The official platform for Africa's leading blockchain community, featuring research papers, event coordination, and member networking. Showcasing African blockchain innovation through interactive content and educational resources for enthusiasts of all levels.",
-      technologies: ["React", "Next.js", "Tailwind CSS", "IPFS integration", "Community Platform"],
-      status: "Live",
-      link: "https://africasblockchainclub.com/",
-      category: "web"
-    },
+    title: "CompanionsFintech",
+    description: "A fintech platform unlocking liquidity for grassroots SMEs through alternative credit profiling, invoice funding, and fractional investing — enabling anyone to invest in real businesses with transparent opportunities.",
+    technologies: ["Vite", "TypeScript", "Vercel", "Nodemailer", "Railway"],
+    status: "Pre-launch", 
+    link: "https://www.companionsfintech.com/",
+    category: "fintech"
+  },
     {
-      title: "Charity NFT",
-      description: "A Web3 platform leveraging account abstraction for gasless transactions and social logins. Each NFT purchase automatically donates to verified charities, combining digital art collection with real-world impact through smart contract automation.",
-      technologies: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll Blockchain", "ERC-721", "Social Logins", "Paymaster"],
-      status: "Live", 
-      link: "https://nft-app-dun-six.vercel.app",
-      category: "blockchain",
-    },
-    
-    {
-      title: "BioHealthChain (Beta)",
-      description: "A privacy-first healthcare data platform leveraging blockchain for secure, transparent medical records management. Enables patients to own their health data while providing healthcare providers with verifiable, tamper-proof medical histories through zero-knowledge proof technology.",
-      technologies: ["Next.js", "TypeScript", "Ethereum", "IPFS", "ZK-Proofs"],
-      status: "Beta", 
-      link: "https://bio-health-chain-4.vercel.app",
-      category: "blockchain"
-    }
-  ];
+    title: "BioHealthChain (Beta)",
+    description: "A privacy-first healthcare platform using blockchain and zero-knowledge proofs to secure medical records. Enables patient-owned data with verifiable and tamper-proof access for providers.",
+    technologies: ["Next.js", "TypeScript", "Ethereum", "IPFS", "ZK-Proofs"],
+    status: "Beta", 
+    link: "https://bio-health-chain-4.vercel.app",
+    category: "blockchain"
+  },
+  {
+    title: "Charity NFT",
+    description: "A Web3 platform enabling gasless NFT minting with social logins. Each purchase automatically donates to verified charities, combining digital ownership with real-world impact through smart contracts.",
+    technologies: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll", "ERC-721"],
+    status: "Live", 
+    link: "https://nft-app-dun-six.vercel.app",
+    category: "blockchain",
+  },
+  {
+    title: "CompanionsFintech MVP (Beta)",
+    description: "An early-stage implementation showcasing SME funding flows, investor onboarding, and listing mechanics — validating a hybrid on-chain/off-chain model for transparent SME financing.",
+    technologies: ["Next.js", "TypeScript", "Smart Contracts", "IPFS"],
+    status: "Beta", 
+    link: "https://bio-health-chain-4.vercel.app",
+    category: "fintech"
+  }
+];
 
   useEffect(() => {
     setMounted(true);
@@ -145,13 +160,15 @@ export default function ProjectsPage() {
   };
 
   const StatusBadge = ({ status }: { status: string }) => {
-    const statusConfig = {
-      Live: { color: '#10B981', background: 'rgba(16, 185, 129, 0.1)', label: '🚀 Live' },
-      Beta: { color: '#F59E0B', background: 'rgba(245, 158, 11, 0.1)', label: '🔬 Beta' },
-      Development: { color: '#3B82F6', background: 'rgba(59, 130, 246, 0.1)', label: '⚡ Dev' }
+    const statusConfig: Record<string, { color: string; background: string; label: string }> = {
+      Live: { color: '#10B981', background: 'rgba(16, 185, 129, 0.1)', label: ' Live' },
+      Beta: { color: '#F59E0B', background: 'rgba(245, 158, 11, 0.1)', label: ' Beta' },
+      Development: { color: '#3B82F6', background: 'rgba(59, 130, 246, 0.1)', label: '⚡ Dev' },
+      'Pre-launch': { color: '#8B5CF6', background: 'rgba(139, 92, 246, 0.1)', label: ' Pre‑launch' },
+      'Pre-Launch': { color: '#8B5CF6', background: 'rgba(139, 92, 246, 0.1)', label: ' Pre‑launch' },
     };
 
-    const config = statusConfig[status as keyof typeof statusConfig] || statusConfig.Development;
+    const config = statusConfig[status] || statusConfig.Development;
 
     return (
       <span style={{
@@ -169,12 +186,12 @@ export default function ProjectsPage() {
   };
 
   const CategoryBadge = ({ category }: { category: string }) => {
-    const categoryConfig = {
+    const categoryConfig: Record<string, { color: string; background: string; label: string }> = {
       blockchain: { color: '#8B5CF6', background: 'rgba(139, 92, 246, 0.1)', label: '🔗 Blockchain' },
-      web: { color: '#3B82F6', background: 'rgba(59, 130, 246, 0.1)', label: '🌐 Web App' }
+      web: { color: '#3B82F6', background: 'rgba(59, 130, 246, 0.1)', label: '🌐 Web App' },
+      fintech: { color: '#10B981', background: 'rgba(16, 185, 129, 0.1)', label: '💰 Fintech' },
     };
-
-    const config = categoryConfig[category as keyof typeof categoryConfig] || categoryConfig.web;
+    const config = categoryConfig[category.toLowerCase()] || categoryConfig.web;
 
     return (
       <span style={{
