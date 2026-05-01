@@ -101,6 +101,14 @@ export default function ResearchPapersPage() {
       isPinned: true,
       mediumLink: "https://medium.com/@africablockchainclub/the-evolution-of-ai-from-prediction-to-execution-f37c9ec866c6"
     },
+    {
+  id: 9,
+  title: "Flying Tulip: A Unified DeFi System",
+  description: "Flying Tulip explores a unified DeFi architecture where lending, trading, and derivatives operate within a single system. Instead of moving capital across platforms, users can deploy one asset across multiple functions simultaneously, improving capital efficiency and reducing fragmentation through true composability.",
+  date: "2026-04-26",
+  readTime: 14,
+  mediumLink: "https://medium.com/@africablockchainclub/flying-tulip-a-unified-defi-system-5003840c1bab"
+}
   ];
 
   const truncateDescription = (description: string, maxLength: number = 150) => {
