@@ -21,18 +21,63 @@ export const profile = {
   },
 }
 
-export const featured: Title = {
-  id: "abc-hub",
-  title: "Africa's Blockchain Club Hub",
-  description:
-    "The official platform for Africa's leading blockchain community — featuring research, events, and member engagement. Showcasing African blockchain innovation through educational content and interactive experiences.",
-  image: "/thumbnails/hero.png",
-  link: "https://africasblockchainclub.com/",
-  tags: ["React", "Next.js", "Tailwind", "IPFS"],
-  badge: "Live",
-  meta: "Community Platform",
-}
-
+export const featuredItems = [
+  {
+    id: "abc-hub",
+    title: "Africa's Blockchain Club Hub",
+    description:
+      "The official platform for Africa's leading blockchain community — featuring research, events, and member engagement. Showcasing African blockchain innovation through educational content and interactive experiences.",
+    image: "/thumbnails/hero.png",
+    link: "https://africasblockchainclub.com/",
+    tags: ["React", "Next.js", "Tailwind", "RestAPI", "Typescript"],
+    badge: "Live",
+    meta: "Community Platform",
+  },
+  {
+    id: "project-2",
+    title: "CompanionsFintech",
+    description:
+      "A fintech platform unlocking liquidity for grassroots SMEs through alternative credit profiling, invoice funding, and fractional investing — enabling anyone to invest in real businesses with transparent opportunities.",
+    image: "/thumbnails/summit.png",
+    link: "https://www.companionsfintech.com/",
+    tags: ["React", "Next.js", "Tailwind", "RestAPI", "Typescript"],
+    badge: "Live",
+    meta: "Conference",
+  },
+  {
+    id: "project-3",
+    title: "BioHealthChain (Beta)",
+    description:
+      "A privacy-first healthcare platform using blockchain and zero-knowledge proofs to secure medical records. Enables patient-owned data with verifiable and tamper-proof access for providers.",
+    image: "/thumbnails/defi.png",
+    link: "https://bio-health-chain-4.vercel.app",
+    tags: ["Next.js", "TypeScript", "Ethereum", "IPFS", "ZK-Proofs"],
+    badge: "Active",
+    meta: "Learning",
+  },
+  {
+    id: "project-4",
+    title: "Charity NFT",
+    description:
+      "A Web3 platform enabling gasless NFT minting with social logins. Each purchase automatically donates to verified charities, combining digital ownership with real-world impact through smart contracts.",
+    image: "/thumbnails/defi.png",
+    link: "https://nft-app-dun-six.vercel.app",
+    tags: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll", "ERC-721", "EIP-4337"],
+    badge: "Active",
+    meta: "Learning",
+  },
+    {
+    id: "project-5",
+    title: "CompanionsFintech MVP (Beta)",
+    description:
+      "An early-stage implementation showcasing SME funding flows, investor onboarding, and listing mechanics — validating a hybrid on-chain/off-chain model for transparent SME financing.",
+    image: "/thumbnails/defi.png",
+    link: "https://bio-health-chain-4.vercel.app",
+    tags: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll", "ERC-721", "EIP-4337"],
+    badge: "Beta",
+    meta: "Learning",
+  },
+]
 export const projects: Title[] = [
   {
     id: "abc-hub",
