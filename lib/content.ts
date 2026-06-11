@@ -27,7 +27,7 @@ export const featuredItems = [
     title: "Africa's Blockchain Club Hub",
     description:
       "The official platform for Africa's leading blockchain community — featuring research, events, and member engagement. Showcasing African blockchain innovation through educational content and interactive experiences.",
-    image: "/thumbnails/hero.png",
+    image: "/ABC.png",
     link: "https://africasblockchainclub.com/",
     tags: ["React", "Next.js", "Tailwind", "RestAPI", "Typescript"],
     badge: "Live",
@@ -38,7 +38,7 @@ export const featuredItems = [
     title: "CompanionsFintech",
     description:
       "A fintech platform unlocking liquidity for grassroots SMEs through alternative credit profiling, invoice funding, and fractional investing — enabling anyone to invest in real businesses with transparent opportunities.",
-    image: "/thumbnails/summit.png",
+    image: "/companions.png",
     link: "https://www.companionsfintech.com/",
     tags: ["React", "Next.js", "Tailwind", "RestAPI", "Typescript"],
     badge: "Live",
@@ -49,7 +49,7 @@ export const featuredItems = [
     title: "BioHealthChain (Beta)",
     description:
       "A privacy-first healthcare platform using blockchain and zero-knowledge proofs to secure medical records. Enables patient-owned data with verifiable and tamper-proof access for providers.",
-    image: "/thumbnails/defi.png",
+    image: "/Biohealth.png",
     link: "https://bio-health-chain-4.vercel.app",
     tags: ["Next.js", "TypeScript", "Ethereum", "IPFS", "ZK-Proofs"],
     badge: "Active",
@@ -60,7 +60,7 @@ export const featuredItems = [
     title: "Charity NFT",
     description:
       "A Web3 platform enabling gasless NFT minting with social logins. Each purchase automatically donates to verified charities, combining digital ownership with real-world impact through smart contracts.",
-    image: "/thumbnails/defi.png",
+    image: "/Charity.png",
     link: "https://nft-app-dun-six.vercel.app",
     tags: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll", "ERC-721", "EIP-4337"],
     badge: "Active",
@@ -71,7 +71,7 @@ export const featuredItems = [
     title: "CompanionsFintech MVP (Beta)",
     description:
       "An early-stage implementation showcasing SME funding flows, investor onboarding, and listing mechanics — validating a hybrid on-chain/off-chain model for transparent SME financing.",
-    image: "/thumbnails/defi.png",
+    image: "/companions.png",
     link: "https://bio-health-chain-4.vercel.app",
     tags: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll", "ERC-721", "EIP-4337"],
     badge: "Beta",
@@ -84,7 +84,7 @@ export const projects: Title[] = [
     title: "Africa's Blockchain Club Hub",
     description:
       "The official platform for Africa's leading blockchain community, featuring research, events, and member engagement.",
-    image: "/thumbnails/web.png",
+    image: "/ABC.png",
     link: "https://africasblockchainclub.com/",
     tags: ["React", "Next.js", "Tailwind CSS", "IPFS"],
     badge: "Live",
@@ -95,10 +95,10 @@ export const projects: Title[] = [
     title: "CompanionsFintech",
     description:
       "A fintech platform unlocking liquidity for grassroots SMEs through alternative credit profiling, invoice funding, and fractional investing.",
-    image: "/thumbnails/fintech.png",
+    image: "/companions.png",
     link: "https://www.companionsfintech.com/",
     tags: ["Vite", "TypeScript", "Vercel", "Railway"],
-    badge: "Pre-launch",
+    badge: "Live",
     meta: "Fintech",
   },
   {
@@ -106,7 +106,7 @@ export const projects: Title[] = [
     title: "BioHealthChain",
     description:
       "A privacy-first healthcare platform using blockchain and zero-knowledge proofs to secure medical records with patient-owned, tamper-proof data.",
-    image: "/thumbnails/blockchain.png",
+    image: "/Biohealth.png",
     link: "https://bio-health-chain-4.vercel.app",
     tags: ["Next.js", "TypeScript", "Ethereum", "ZK-Proofs"],
     badge: "Beta",
@@ -117,7 +117,7 @@ export const projects: Title[] = [
     title: "Charity NFT",
     description:
       "A Web3 platform enabling gasless NFT minting with social logins. Each purchase automatically donates to verified charities via smart contracts.",
-    image: "/thumbnails/gaming.png",
+    image: "/Charity.png",
     link: "https://nft-app-dun-six.vercel.app",
     tags: ["Next.js", "ZeroDev AA", "Scroll", "ERC-721"],
     badge: "Live",
@@ -128,7 +128,7 @@ export const projects: Title[] = [
     title: "CompanionsFintech MVP",
     description:
       "An early-stage implementation showcasing SME funding flows, investor onboarding, and listing mechanics — validating a hybrid on-chain/off-chain model.",
-    image: "/thumbnails/defi.png",
+    image: "/companions.png",
     link: "https://bio-health-chain-4.vercel.app",
     tags: ["Next.js", "Smart Contracts", "IPFS"],
     badge: "Beta",
