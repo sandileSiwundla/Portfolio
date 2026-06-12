@@ -76,6 +76,18 @@ export const featuredItems = [
     tags: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll", "ERC-721", "EIP-4337"],
     badge: "Beta",
     meta: "Learning",
+  }
+  ,
+    {
+    id: "project-6",
+    title: "GATSHENI PUISSANCE",
+    description:
+      "A full-featured Next.js e-commerce platform with a dual-interface system. Customers enjoy a seamless shopping experience, while administrators have powerful customization controls to manage products, update inventory, and modify site content in real-time, all without touching code.",
+    image: "/gatsheni.png",
+    link: "https://gatsheni-puissance.vercel.app/",
+    tags: ["Next.js", "Louis Vuitton Reference", "Typescript"],
+    badge: "Live",
+    meta: "commission",
   },
 ]
 export const projects: Title[] = [
@@ -134,6 +146,17 @@ export const projects: Title[] = [
     badge: "Beta",
     meta: "Fintech",
   },
+    {
+    id: "GATSHENI-PUISSANCE",
+    title: "GATSHENI PUISSANCE",
+    description:
+      "A full-featured Next.js e-commerce platform with a dual-interface system. Customers enjoy a seamless shopping experience, while administrators have powerful customization controls to manage products, update inventory, and modify site content in real-time, all without touching code.",
+    image: "/gatsheni.png",
+    link: "https://gatsheni-puissance.vercel.app/",
+    tags: ["Next.js", "Louis vuitton Reference", "Typescript"],
+    badge: "Live",
+    meta: "Fintech",
+  },
 ]
 
 export const articles: Title[] = [
@@ -142,21 +165,31 @@ export const articles: Title[] = [
     title: "x402: The Payment Protocol for AI Agents",
     description:
       "x402 lets AI agents and humans make fast, automated, per-request payments online — replacing subscriptions and API keys by embedding stablecoin payments into web requests.",
-    image: "/thumbnails/ai.png",
+    image: "/x402.webp",
     link: "https://medium.com/@africablockchainclub/x402-the-payment-protocol-for-ai-agents-6caf81f22e8c",
     tags: ["AI", "Payments", "DeFi"],
     badge: "Pinned",
     meta: "12 min read",
+  },
+   {
+    id: "kelp",
+    title: "The Drift and Kelp DAO Hacks: What Went Wrong?",
+    description:
+      "April 2026 marked a turning point for DeFi security. Within roughly three weeks, two major protocols, Drift and Kelp DAO, were hit by large-scale exploits, resulting in combined losses approaching half a billion dollars.",
+    image: "/kelp.webp",
+    link: "https://medium.com/@africablockchainclub/the-breach-that-rocked-the-crypto-world-bybits-1-5-billion-heist-9a1b0d50ebd3",
+    tags: ["Security", "Hack", "Exploit"],
+    badge: "Pinned",
+    meta: "6 min read",
   },
   {
     id: "aster",
     title: "Aster: The Hyperliquid Killer?",
     description:
       "A comparison of Hyperliquid and Aster, two leading perp DEXs with contrasting approaches to speed, multi-chain liquidity, and the future of DeFi.",
-    image: "/thumbnails/defi.png",
+    image: "/aster.webp",
     link: "https://medium.com/@africablockchainclub/aster-the-hyperliquid-killer-4904c3b832c3",
     tags: ["DeFi", "DEX"],
-    badge: "Pinned",
     meta: "16 min read",
   },
   {
@@ -164,7 +197,7 @@ export const articles: Title[] = [
     title: "The Evolution of AI: From Prediction to Execution",
     description:
       "Tracing AI's journey from simple prediction to autonomous action — from pattern-matching models to agents with memory, planning, and goal-driven workflows.",
-    image: "/thumbnails/ai.png",
+    image: "/ai.webp",
     link: "https://medium.com/@africablockchainclub/the-evolution-of-ai-from-prediction-to-execution-f37c9ec866c6",
     tags: ["AI", "Agents"],
     badge: "Pinned",
@@ -175,7 +208,7 @@ export const articles: Title[] = [
     title: "Flying Tulip: A Unified DeFi System",
     description:
       "Exploring a unified DeFi architecture where lending, trading, and derivatives operate within a single system, improving capital efficiency through composability.",
-    image: "/thumbnails/defi.png",
+    image: "/ft.webp",
     link: "https://medium.com/@africablockchainclub/flying-tulip-a-unified-defi-system-5003840c1bab",
     tags: ["DeFi"],
     meta: "14 min read",
@@ -185,7 +218,7 @@ export const articles: Title[] = [
     title: "Pendle Finance: Redefining Yield in DeFi",
     description:
       "How Pendle transforms yield-bearing assets by splitting them into Principal Tokens and Yield Tokens, enabling users to trade and hedge yield independently.",
-    image: "/thumbnails/defi.png",
+    image: "/pendle.webp",
     link: "https://medium.com/@africablockchainclub/pendle-finance-redefining-yield-in-defi-d02f9ea0492d",
     tags: ["DeFi", "Yield"],
     meta: "11 min read",
@@ -195,7 +228,7 @@ export const articles: Title[] = [
     title: "Unlocking Value in Web3 Gaming",
     description:
       "How Web3 gaming and GameFi give players true ownership of digital items through play-to-earn models and community-led decision-making.",
-    image: "/thumbnails/gaming.png",
+    image: "/gamify.webp",
     link: "https://medium.com/@africablockchainclub/unlocking-value-in-web3-gaming-e92401d553ff",
     tags: ["Web3", "Gaming"],
     meta: "9 min read",
@@ -205,7 +238,7 @@ export const articles: Title[] = [
     title: "Kaito AI: Turning Crypto Knowledge into Earnings",
     description:
       "A Web3 intelligence platform combining AI-driven search, real-time analytics, and tokenized incentives into a single seamless ecosystem built on Base.",
-    image: "/thumbnails/ai.png",
+    image: "/kaito.webp",
     link: "https://medium.com/@africablockchainclub/kaito-ai-turning-crypto-knowledge-into-earnings-493dc8cd1ba0",
     tags: ["AI", "Crypto"],
     meta: "9 min read",
@@ -215,7 +248,7 @@ export const articles: Title[] = [
     title: "CEX or DEX? The FTX Collapse Disruption",
     description:
       "The downfall of FTX exposed the vulnerabilities of centralized exchanges and highlighted the transparency and accountability of decentralized exchanges.",
-    image: "/thumbnails/security.png",
+    image: "/Dex.webp",
     link: "https://medium.com/@africablockchainclub/cex-or-dex-the-ftx-collapse-disruption-f20a863f416a",
     tags: ["DeFi", "Security"],
     meta: "8 min read",
@@ -225,11 +258,11 @@ export const articles: Title[] = [
     title: "The Breach That Rocked the Crypto World",
     description:
       "On February 21st 2025, Bybit fell victim to a sophisticated cyberattack resulting in the theft of over 400,000 ETH — nearly $1.5 billion — raising critical security questions.",
-    image: "/thumbnails/security.png",
+    image: "/bybit.webp",
     link: "https://medium.com/@africablockchainclub/the-breach-that-rocked-the-crypto-world-bybits-1-5-billion-heist-9a1b0d50ebd3",
     tags: ["Security", "Hack"],
     meta: "6 min read",
-  },
+  }
 ]
 
 export const rows = [
