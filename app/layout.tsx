@@ -13,15 +13,15 @@ export const metadata: Metadata = {
   title: 'Sandile Siwundla — Portfolio',
   description:
     'A Netflix-style showcase of Sandile Siwundla\'s websites, projects, and blockchain research articles.',
-  generator: 'v0.app',
+  generator: 'Next.js ',
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
+        url: 'icon.svg',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: '/icon.svg',
         media: '(prefers-color-scheme: dark)',
       },
       {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/icon.svg',
   },
 }
 
