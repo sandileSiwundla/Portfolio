@@ -5,11 +5,23 @@ import Image from "next/image"
 import { Play, Info, ChevronLeft, ChevronRight } from "lucide-react"
 import { featuredItems } from "@/lib/content"
 
-
 export function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [isMobile, setIsMobile] = useState(false)
   const currentItem = featuredItems[currentIndex]
+
+  // Detect mobile view
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const goToNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % featuredItems.length)
@@ -22,24 +34,26 @@ export function Hero() {
   const goToSlide = (index: number) => {
     setCurrentIndex(index)
     setIsAutoPlaying(false)
-    // Resume auto-play after 10 seconds of inactivity
     setTimeout(() => setIsAutoPlaying(true), 10000)
   }
 
-  // Auto-rotate every 3 seconds
   useEffect(() => {
     if (!isAutoPlaying) return
-
     const interval = setInterval(() => {
       goToNext()
     }, 3000)
-
     return () => clearInterval(interval)
   }, [isAutoPlaying, goToNext])
 
-  // Pause auto-play on hover
   const handleMouseEnter = () => setIsAutoPlaying(false)
   const handleMouseLeave = () => setIsAutoPlaying(true)
+
+  const getImageSrc = () => {
+    if (isMobile && currentItem.mobileImage) {
+      return currentItem.mobileImage
+    }
+    return currentItem.image
+  }
 
   return (
     <section
@@ -48,10 +62,9 @@ export function Hero() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Background Image with Ken Burns effect */}
       <div className="absolute inset-0 transition-transform duration-1000 ease-out">
         <Image
-          src={currentItem.image || "/placeholder.svg"}
+          src={getImageSrc() || "/placeholder.svg"}
           alt={currentItem.title}
           fill
           priority
@@ -59,11 +72,10 @@ export function Hero() {
         />
       </div>
 
-      {/* Gradients */}
+      {/* Rest of your component remains the same */}
       <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
 
-      {/* Navigation Arrows */}
       <button
         onClick={goToPrev}
         className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white backdrop-blur-sm transition-all hover:bg-black/70 hover:scale-110 md:left-8"
@@ -80,7 +92,6 @@ export function Hero() {
         <ChevronRight className="size-6" />
       </button>
 
-      {/* Dots Indicator */}
       <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-2">
         {featuredItems.map((_, index) => (
           <button
@@ -94,7 +105,6 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Content */}
       <div className="relative z-10 flex h-full max-w-[1600px] flex-col justify-end px-4 pb-24 md:px-10 md:pb-32">
         <span className="mb-3 inline-flex w-fit items-center gap-2 rounded bg-primary/90 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-primary-foreground transition-all duration-500 animate-in slide-in-from-bottom-4">
           {currentItem.badge} · {currentItem.meta}
@@ -108,7 +118,6 @@ export function Hero() {
           {currentItem.description}
         </p>
 
-        {/* Tags */}
         <div className="mt-4 flex flex-wrap gap-2 transition-all duration-500 animate-in slide-in-from-bottom-10 delay-200">
           {currentItem.tags.map((tag) => (
             <span

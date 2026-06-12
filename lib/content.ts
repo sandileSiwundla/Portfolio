@@ -23,73 +23,72 @@ export const profile = {
 
 export const featuredItems = [
   {
+    id: "crypto-aggregator",
+    title: "Crypto Aggregator - AssetView",
+    description: "Professional cryptocurrency research platform providing real-time data, advanced analytics, and side-by-side token comparison tools.",
+    image: "/crypto.png",
+    mobileImage: "/thumbnails/defi.png", 
+    link: "https://crypto-aggregator-virid.vercel.app",
+    tags: ["Next.js", "TypeScript", "Tailwind", "Recharts"],
+    badge: "Live",
+    meta: "Research Platform",
+  },
+  {
     id: "abc-hub",
     title: "Africa's Blockchain Club Hub",
-    description:
-      "The official platform for Africa's leading blockchain community — featuring research, events, and member engagement. Showcasing African blockchain innovation through educational content and interactive experiences.",
+    description: "The official platform for Africa's leading blockchain community featuring research, events, and member engagement.",
     image: "/ABC.png",
+    mobileImage: "/thumbnails/blockchain.png", // Simplified for mobile
     link: "https://africasblockchainclub.com/",
-    tags: ["React", "Next.js", "Tailwind", "RestAPI", "Typescript"],
+    tags: ["React", "Next.js", "Tailwind", "RestAPI"],
     badge: "Live",
     meta: "Community Platform",
   },
   {
-    id: "project-2",
+    id: "companions-fintech",
     title: "CompanionsFintech",
-    description:
-      "A fintech platform unlocking liquidity for grassroots SMEs through alternative credit profiling, invoice funding, and fractional investing — enabling anyone to invest in real businesses with transparent opportunities.",
+    description: "A fintech platform unlocking liquidity for grassroots SMEs through alternative credit profiling and invoice funding.",
     image: "/companions.png",
+    mobileImage: "/thumbnails/fintech.png",
     link: "https://www.companionsfintech.com/",
-    tags: ["React", "Next.js", "Tailwind", "RestAPI", "Typescript"],
+    tags: ["React", "Next.js", "Tailwind", "RestAPI"],
     badge: "Live",
-    meta: "Conference",
+    meta: "Fintech Platform",
   },
   {
-    id: "project-3",
+    id: "biohealth-chain",
     title: "BioHealthChain (Beta)",
-    description:
-      "A privacy-first healthcare platform using blockchain and zero-knowledge proofs to secure medical records. Enables patient-owned data with verifiable and tamper-proof access for providers.",
+    description: "A privacy-first healthcare platform using blockchain and zero-knowledge proofs to secure medical records.",
     image: "/Biohealth.png",
+    mobileImage: "/thumbnails/security.png",
     link: "https://bio-health-chain-4.vercel.app",
-    tags: ["Next.js", "TypeScript", "Ethereum", "IPFS", "ZK-Proofs"],
+    tags: ["Next.js", "TypeScript", "Ethereum", "IPFS"],
     badge: "Active",
-    meta: "Learning",
+    meta: "Healthcare",
   },
   {
-    id: "project-4",
+    id: "charity-nft",
     title: "Charity NFT",
-    description:
-      "A Web3 platform enabling gasless NFT minting with social logins. Each purchase automatically donates to verified charities, combining digital ownership with real-world impact through smart contracts.",
+    description: "A Web3 platform enabling gasless NFT minting with social logins. Each purchase automatically donates to verified charities.",
     image: "/Charity.png",
+    mobileImage: "/thumbnails/gaming.png",
     link: "https://nft-app-dun-six.vercel.app",
-    tags: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll", "ERC-721", "EIP-4337"],
+    tags: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll"],
     badge: "Active",
-    meta: "Learning",
+    meta: "Web3",
   },
-    {
-    id: "project-5",
-    title: "CompanionsFintech MVP (Beta)",
-    description:
-      "An early-stage implementation showcasing SME funding flows, investor onboarding, and listing mechanics — validating a hybrid on-chain/off-chain model for transparent SME financing.",
-    image: "/companions.png",
-    link: "https://bio-health-chain-4.vercel.app",
-    tags: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll", "ERC-721", "EIP-4337"],
-    badge: "Beta",
-    meta: "Learning",
-  }
-  ,
-    {
-    id: "project-6",
+  {
+    id: "gatsheni-puissance",
     title: "GATSHENI PUISSANCE",
-    description:
-      "A full-featured Next.js e-commerce platform with a dual-interface system. Customers enjoy a seamless shopping experience, while administrators have powerful customization controls to manage products, update inventory, and modify site content in real-time, all without touching code.",
+    description: "A full-featured Next.js e-commerce platform with a dual-interface system for customers and administrators.",
     image: "/gatsheni.png",
+    mobileImage: "/thumbnails/web.png",
     link: "https://gatsheni-puissance.vercel.app/",
     tags: ["Next.js", "Louis Vuitton Reference", "Typescript"],
     badge: "Live",
-    meta: "commission",
+    meta: "E-commerce",
   },
-]
+];
 export const projects: Title[] = [
   {
     id: "abc-hub",
