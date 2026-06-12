@@ -102,6 +102,16 @@ export const projects: Title[] = [
     meta: "Web Platform",
   },
   {
+    id: "crypto-aggregator",
+    title: "Crypto Aggregator - AssetView",
+    description: "Professional cryptocurrency research platform providing real-time data, advanced analytics, and side-by-side token comparison tools.",
+    image: "/crypto.png",
+    link: "https://crypto-aggregator-virid.vercel.app",
+    tags: ["Next.js", "TypeScript", "Tailwind", "Recharts"],
+    badge: "Live",
+    meta: "Research Platform",
+  },
+  {
     id: "companions-fintech",
     title: "CompanionsFintech",
     description:
