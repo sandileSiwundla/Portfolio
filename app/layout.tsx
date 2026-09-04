@@ -15,20 +15,7 @@ export const metadata: Metadata = {
     'A Netflix-style showcase of Sandile Siwundla\'s websites, projects, and blockchain research articles.',
   generator: 'Next.js ',
   icons: {
-    icon: [
-      {
-        url: 'icon.svg',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon.svg',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
     apple: '/icon.svg',
   },
 }

@@ -1,153 +1,251 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useCallback, useEffect, useState } from "react"
 import Image from "next/image"
-import { Play, Info, ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowUpRight, ChevronLeft, ChevronRight, Info, Pause, Play } from "lucide-react"
 import { featuredItems } from "@/lib/content"
+import { BrowserFrame } from "@/components/browser-frame"
+
+const SLIDE_MS = 7000
+// A slide carrying a screencast holds long enough to let the clip run once.
+const VIDEO_SLIDE_MS = 11000
 
 export function Hero() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
-  const [isMobile, setIsMobile] = useState(false)
-  const currentItem = featuredItems[currentIndex]
+  const [index, setIndex] = useState(0)
+  const [paused, setPaused] = useState(false)
+  const current = featuredItems[index]
+  const slideMs = current.video ? VIDEO_SLIDE_MS : SLIDE_MS
 
-  // Detect mobile view
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
+  const goTo = useCallback((next: number) => {
+    setIndex((next + featuredItems.length) % featuredItems.length)
   }, [])
 
-  const goToNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % featuredItems.length)
-  }, [])
-
-  const goToPrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + featuredItems.length) % featuredItems.length)
-  }, [])
-
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index)
-    setIsAutoPlaying(false)
-    setTimeout(() => setIsAutoPlaying(true), 10000)
-  }
+  const next = useCallback(() => goTo(index + 1), [goTo, index])
+  const prev = useCallback(() => goTo(index - 1), [goTo, index])
 
   useEffect(() => {
-    if (!isAutoPlaying) return
-    const interval = setInterval(() => {
-      goToNext()
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [isAutoPlaying, goToNext])
+    if (paused) return
+    // A timeout rather than an interval: the dwell varies per slide.
+    const timer = setTimeout(() => setIndex((i) => (i + 1) % featuredItems.length), slideMs)
+    return () => clearTimeout(timer)
+  }, [paused, index, slideMs])
 
-  const handleMouseEnter = () => setIsAutoPlaying(false)
-  const handleMouseLeave = () => setIsAutoPlaying(true)
-
-  const getImageSrc = () => {
-    if (isMobile && currentItem.mobileImage) {
-      return currentItem.mobileImage
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") next()
+      if (e.key === "ArrowLeft") prev()
     }
-    return currentItem.image
-  }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [next, prev])
 
   return (
     <section
       id="home"
-      className="relative h-[85vh] min-h-[560px] w-full overflow-hidden"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      aria-roledescription="carousel"
+      aria-label="Featured work"
+      className="relative isolate overflow-hidden pt-24 pb-10 sm:pt-28 lg:pt-32 lg:pb-16"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
     >
-      <div className="absolute inset-0 transition-transform duration-1000 ease-out">
-        <Image
-          src={getImageSrc() || "/placeholder.svg"}
-          alt={currentItem.title}
-          fill
-          priority
-          className="object-cover scale-105"
-        />
-      </div>
-
-      {/* Rest of your component remains the same */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
-
-      <button
-        onClick={goToPrev}
-        className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white backdrop-blur-sm transition-all hover:bg-black/70 hover:scale-110 md:left-8"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="size-6" />
-      </button>
-
-      <button
-        onClick={goToNext}
-        className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white backdrop-blur-sm transition-all hover:bg-black/70 hover:scale-110 md:right-8"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="size-6" />
-      </button>
-
-      <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-2">
-        {featuredItems.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`h-1.5 rounded-full transition-all ${
-              index === currentIndex ? "w-8 bg-primary" : "w-1.5 bg-white/50 hover:bg-white/80"
+      {/*
+        The artwork here is website screenshots, not poster art — laying it
+        full-bleed behind the copy puts two typefaces on top of each other.
+        So the screenshot only ever appears crisp inside the framed device,
+        and the background gets a heavily blurred copy of it purely for colour.
+      */}
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
+        {featuredItems.map((item, i) => (
+          <div
+            key={item.id}
+            className={`absolute inset-0 transition-opacity duration-[1200ms] ease-out ${
+              i === index ? "opacity-100" : "opacity-0"
             }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
+          >
+            <Image
+              src={item.image}
+              alt=""
+              fill
+              priority={i === 0}
+              sizes="100vw"
+              className="scale-125 object-cover blur-[80px] saturate-150"
+            />
+          </div>
         ))}
+        <div className="absolute inset-0 bg-background/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/80" />
       </div>
 
-      <div className="relative z-10 flex h-full max-w-[1600px] flex-col justify-end px-4 pb-24 md:px-10 md:pb-32">
-        <span className="mb-3 inline-flex w-fit items-center gap-2 rounded bg-primary/90 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-primary-foreground transition-all duration-500 animate-in slide-in-from-bottom-4">
-          {currentItem.badge} · {currentItem.meta}
-        </span>
+      <div className="mx-auto grid max-w-[1600px] items-center gap-10 bleed-x lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-14">
+        {/* Copy */}
+        <div className="order-2 lg:order-1">
+          <p className="mb-4 flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            <span className="inline-block h-3.5 w-[3px] rounded-full bg-primary" />
+            Featured work
+          </p>
 
-        <h1 className="max-w-2xl text-balance text-4xl font-extrabold tracking-tight transition-all duration-500 animate-in slide-in-from-bottom-6 md:text-6xl">
-          {currentItem.title}
-        </h1>
+          <div key={current.id} className="enter-up">
+            <div className="mb-4 flex flex-wrap items-center gap-2.5 text-xs">
+              {current.badge && (
+                <span className="rounded-full bg-primary px-2.5 py-1 font-bold uppercase tracking-wide text-primary-foreground">
+                  {current.badge}
+                </span>
+              )}
+              <span className="font-medium text-foreground/70">{current.meta}</span>
+            </div>
 
-        <p className="mt-4 max-w-xl text-pretty text-sm leading-relaxed text-foreground/80 transition-all duration-500 animate-in slide-in-from-bottom-8 delay-100 md:text-base">
-          {currentItem.description}
-        </p>
+            <h1 className="text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-shadow-billboard sm:text-5xl xl:text-6xl">
+              {current.title}
+            </h1>
 
-        <div className="mt-4 flex flex-wrap gap-2 transition-all duration-500 animate-in slide-in-from-bottom-10 delay-200">
-          {currentItem.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full bg-white/10 px-2.5 py-0.5 text-xs text-white/70 backdrop-blur-sm"
+            <p className="mt-5 max-w-xl text-pretty text-sm leading-relaxed text-foreground/75 sm:text-base">
+              {current.description}
+            </p>
+
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {current.tags.map((tag) => (
+                <li
+                  key={tag}
+                  className="rounded-full border border-white/12 bg-white/[0.06] px-3 py-1 text-xs font-medium text-foreground/80 backdrop-blur-sm"
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href={current.link}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-md bg-foreground px-6 py-3 text-sm font-bold text-background transition hover:bg-foreground/85"
+              >
+                <Play className="size-4 fill-current" aria-hidden="true" />
+                Visit site
+              </a>
+              <a
+                href="#about"
+                className="inline-flex items-center gap-2 rounded-md border border-white/15 bg-white/[0.08] px-6 py-3 text-sm font-bold text-foreground backdrop-blur transition hover:bg-white/[0.14]"
+              >
+                <Info className="size-4" aria-hidden="true" />
+                About me
+              </a>
+            </div>
+          </div>
+
+          {/* Controls sit under the copy so nothing overlaps the headline. */}
+          <div className="mt-9 flex items-center gap-4">
+            <div className="flex items-center gap-1.5">
+              <ControlButton onClick={prev} label="Previous featured project">
+                <ChevronLeft className="size-4" />
+              </ControlButton>
+              <ControlButton onClick={next} label="Next featured project">
+                <ChevronRight className="size-4" />
+              </ControlButton>
+              <ControlButton
+                onClick={() => setPaused((p) => !p)}
+                label={paused ? "Resume slideshow" : "Pause slideshow"}
+              >
+                {paused ? <Play className="size-3.5 fill-current" /> : <Pause className="size-3.5" />}
+              </ControlButton>
+            </div>
+
+            <div className="flex flex-1 items-center gap-1.5" role="tablist" aria-label="Choose featured project">
+              {featuredItems.map((item, i) => (
+                <button
+                  key={item.id}
+                  role="tab"
+                  aria-selected={i === index}
+                  aria-label={item.title}
+                  onClick={() => goTo(i)}
+                  className="group relative h-6 max-w-16 flex-1 cursor-pointer"
+                >
+                  <span className="absolute inset-x-0 top-1/2 h-[3px] -translate-y-1/2 overflow-hidden rounded-full bg-white/20 transition-colors group-hover:bg-white/35">
+                    {i === index && (
+                      <span
+                        key={`${index}-${paused}`}
+                        className="block h-full w-full origin-left rounded-full bg-primary"
+                        style={{
+                          animation: paused
+                            ? undefined
+                            : `hero-progress ${slideMs}ms linear forwards`,
+                          transform: paused ? "scaleX(1)" : undefined,
+                        }}
+                      />
+                    )}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Artwork */}
+        <div className="order-1 lg:order-2">
+          <div className="relative">
+            <div
+              className="absolute -inset-4 -z-10 rounded-[2rem] bg-primary/12 blur-3xl"
+              aria-hidden="true"
+            />
+            <a
+              key={current.id}
+              href={current.link}
+              target="_blank"
+              rel="noreferrer"
+              className="group block enter-up"
             >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-6 flex flex-wrap items-center gap-3 transition-all duration-500 animate-in slide-in-from-bottom-12 delay-300">
-          <a
-            href={currentItem.link}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded bg-foreground px-6 py-2.5 text-sm font-bold text-background transition-all hover:opacity-85 hover:scale-105"
-          >
-            <Play className="size-4 fill-current" aria-hidden="true" />
-            Visit Site
-          </a>
-          <a
-            href="#about"
-            className="inline-flex items-center gap-2 rounded bg-secondary/80 px-6 py-2.5 text-sm font-bold text-foreground backdrop-blur-sm transition-all hover:bg-secondary hover:scale-105"
-          >
-            <Info className="size-4" aria-hidden="true" />
-            More Info
-          </a>
+              <BrowserFrame
+                url={current.link}
+                src={current.image}
+                video={current.video}
+                alt={`Screenshot of ${current.title}`}
+                priority
+                className="shadow-2xl shadow-black/70 transition-transform duration-500 group-hover:-translate-y-1"
+              />
+              <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-foreground/60 transition group-hover:text-foreground">
+                {hostname(current.link)}
+                <ArrowUpRight className="size-3.5" aria-hidden="true" />
+              </span>
+            </a>
+          </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes hero-progress {
+          from { transform: scaleX(0); }
+          to { transform: scaleX(1); }
+        }
+      `}</style>
     </section>
   )
+}
+
+function ControlButton({
+  onClick,
+  label,
+  children,
+}: {
+  onClick: () => void
+  label: string
+  children: React.ReactNode
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={label}
+      className="grid size-9 cursor-pointer place-items-center rounded-full border border-white/12 bg-white/[0.06] text-foreground/80 backdrop-blur transition hover:bg-white/[0.16] hover:text-foreground"
+    >
+      {children}
+    </button>
+  )
+}
+
+function hostname(link: string) {
+  try {
+    return new URL(link).hostname.replace(/^www\./, "")
+  } catch {
+    return link
+  }
 }

@@ -3,16 +3,32 @@ export type Title = {
   title: string
   description: string
   image: string
+  /** Optional ambient screencast; falls back to `image` when absent. */
+  video?: string
   link: string
   tags: string[]
   badge?: string
   meta?: string
+  kind: "project" | "article"
 }
 
 export const profile = {
   name: "Sandile Siwundla",
   role: "Software Developer & Blockchain Researcher",
+  tagline: "Full-stack engineer building for Africa's tech ecosystem.",
   bio: "Full-stack developer and WeThinkCode_ graduate building impactful solutions for Africa's tech ecosystem. Researcher at the Africa Blockchain Club, AWS cloud technologist, and multiple hackathon winner.",
+  skills: [
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Solidity",
+    "Python",
+    "Tailwind CSS",
+    "PostgreSQL",
+    "AWS",
+    "IPFS",
+  ],
   links: {
     github: "https://github.com/sandileSiwundla",
     linkedin: "https://www.linkedin.com/in/sandile-siwundla-51b0b5307/",
@@ -21,13 +37,14 @@ export const profile = {
   },
 }
 
-export const featuredItems = [
+export const projects: Title[] = [
   {
     id: "crypto-aggregator",
-    title: "Crypto Aggregator - AssetView",
-    description: "Professional cryptocurrency research platform providing real-time data, advanced analytics, and side-by-side token comparison tools.",
+    kind: "project",
+    title: "AssetView",
+    description:
+      "A cryptocurrency research platform with real-time market data, advanced analytics, and side-by-side token comparison tools.",
     image: "/crypto.png",
-    mobileImage: "/thumbnails/defi.png", 
     link: "https://crypto-aggregator-virid.vercel.app",
     tags: ["Next.js", "TypeScript", "Tailwind", "Recharts"],
     badge: "Live",
@@ -35,84 +52,20 @@ export const featuredItems = [
   },
   {
     id: "abc-hub",
+    kind: "project",
     title: "Africa's Blockchain Club Hub",
-    description: "The official platform for Africa's leading blockchain community featuring research, events, and member engagement.",
+    description:
+      "The official platform for Africa's leading blockchain community, featuring research publications, events, and member engagement.",
     image: "/ABC.png",
-    mobileImage: "/thumbnails/blockchain.png", // Simplified for mobile
+    video: "/ABC.webm",
     link: "https://africasblockchainclub.com/",
-    tags: ["React", "Next.js", "Tailwind", "RestAPI"],
+    tags: ["React", "Next.js", "Tailwind", "REST API"],
     badge: "Live",
     meta: "Community Platform",
   },
   {
     id: "companions-fintech",
-    title: "CompanionsFintech",
-    description: "A fintech platform unlocking liquidity for grassroots SMEs through alternative credit profiling and invoice funding.",
-    image: "/companions.png",
-    mobileImage: "/thumbnails/fintech.png",
-    link: "https://www.companionsfintech.com/",
-    tags: ["React", "Next.js", "Tailwind", "RestAPI"],
-    badge: "Live",
-    meta: "Fintech Platform",
-  },
-  {
-    id: "biohealth-chain",
-    title: "BioHealthChain (Beta)",
-    description: "A privacy-first healthcare platform using blockchain and zero-knowledge proofs to secure medical records.",
-    image: "/Biohealth.png",
-    mobileImage: "/thumbnails/security.png",
-    link: "https://bio-health-chain-4.vercel.app",
-    tags: ["Next.js", "TypeScript", "Ethereum", "IPFS"],
-    badge: "Active",
-    meta: "Healthcare",
-  },
-  {
-    id: "charity-nft",
-    title: "Charity NFT",
-    description: "A Web3 platform enabling gasless NFT minting with social logins. Each purchase automatically donates to verified charities.",
-    image: "/Charity.png",
-    mobileImage: "/thumbnails/gaming.png",
-    link: "https://nft-app-dun-six.vercel.app",
-    tags: ["Next.js", "TypeScript", "ZeroDev AA", "Scroll"],
-    badge: "Active",
-    meta: "Web3",
-  },
-  {
-    id: "gatsheni-puissance",
-    title: "GATSHENI PUISSANCE",
-    description: "A full-featured Next.js e-commerce platform with a dual-interface system for customers and administrators.",
-    image: "/gatsheni.png",
-    mobileImage: "/thumbnails/web.png",
-    link: "https://gatsheni-puissance.vercel.app/",
-    tags: ["Next.js", "Louis Vuitton Reference", "Typescript"],
-    badge: "Live",
-    meta: "E-commerce",
-  },
-];
-export const projects: Title[] = [
-  {
-    id: "abc-hub",
-    title: "Africa's Blockchain Club Hub",
-    description:
-      "The official platform for Africa's leading blockchain community, featuring research, events, and member engagement.",
-    image: "/ABC.png",
-    link: "https://africasblockchainclub.com/",
-    tags: ["React", "Next.js", "Tailwind CSS", "IPFS"],
-    badge: "Live",
-    meta: "Web Platform",
-  },
-  {
-    id: "crypto-aggregator",
-    title: "Crypto Aggregator - AssetView",
-    description: "Professional cryptocurrency research platform providing real-time data, advanced analytics, and side-by-side token comparison tools.",
-    image: "/crypto.png",
-    link: "https://crypto-aggregator-virid.vercel.app",
-    tags: ["Next.js", "TypeScript", "Tailwind", "Recharts"],
-    badge: "Live",
-    meta: "Research Platform",
-  },
-  {
-    id: "companions-fintech",
+    kind: "project",
     title: "CompanionsFintech",
     description:
       "A fintech platform unlocking liquidity for grassroots SMEs through alternative credit profiling, invoice funding, and fractional investing.",
@@ -123,54 +76,47 @@ export const projects: Title[] = [
     meta: "Fintech",
   },
   {
+    id: "gatsheni-puissance",
+    kind: "project",
+    title: "Gatsheni Puissance",
+    description:
+      "A luxury e-commerce platform with a dual interface: a seamless storefront for customers, and an admin console that lets the owner edit products, inventory, and site content in real time without touching code.",
+    image: "/gatsheni.png",
+    link: "https://gatsheni-puissance.vercel.app/",
+    tags: ["Next.js", "TypeScript", "Stripe"],
+    badge: "Live",
+    meta: "E-commerce",
+  },
+  {
     id: "biohealthchain",
+    kind: "project",
     title: "BioHealthChain",
     description:
-      "A privacy-first healthcare platform using blockchain and zero-knowledge proofs to secure medical records with patient-owned, tamper-proof data.",
+      "A privacy-first healthcare platform using blockchain and zero-knowledge proofs to secure medical records as patient-owned, tamper-proof data.",
     image: "/Biohealth.png",
     link: "https://bio-health-chain-4.vercel.app",
     tags: ["Next.js", "TypeScript", "Ethereum", "ZK-Proofs"],
     badge: "Beta",
-    meta: "Blockchain",
+    meta: "Healthcare",
   },
   {
     id: "charity-nft",
+    kind: "project",
     title: "Charity NFT",
     description:
-      "A Web3 platform enabling gasless NFT minting with social logins. Each purchase automatically donates to verified charities via smart contracts.",
+      "A Web3 platform enabling gasless NFT minting with social logins. Every purchase automatically donates to verified charities via smart contracts.",
     image: "/Charity.png",
     link: "https://nft-app-dun-six.vercel.app",
     tags: ["Next.js", "ZeroDev AA", "Scroll", "ERC-721"],
     badge: "Live",
-    meta: "Blockchain",
-  },
-  {
-    id: "companions-mvp",
-    title: "CompanionsFintech MVP",
-    description:
-      "An early-stage implementation showcasing SME funding flows, investor onboarding, and listing mechanics — validating a hybrid on-chain/off-chain model.",
-    image: "/companions.png",
-    link: "https://bio-health-chain-4.vercel.app",
-    tags: ["Next.js", "Smart Contracts", "IPFS"],
-    badge: "Beta",
-    meta: "Fintech",
-  },
-    {
-    id: "GATSHENI-PUISSANCE",
-    title: "GATSHENI PUISSANCE",
-    description:
-      "A full-featured Next.js e-commerce platform with a dual-interface system. Customers enjoy a seamless shopping experience, while administrators have powerful customization controls to manage products, update inventory, and modify site content in real-time, all without touching code.",
-    image: "/gatsheni.png",
-    link: "https://gatsheni-puissance.vercel.app/",
-    tags: ["Next.js", "Louis vuitton Reference", "Typescript"],
-    badge: "Live",
-    meta: "Fintech",
+    meta: "Web3",
   },
 ]
 
 export const articles: Title[] = [
   {
     id: "x402",
+    kind: "article",
     title: "x402: The Payment Protocol for AI Agents",
     description:
       "x402 lets AI agents and humans make fast, automated, per-request payments online — replacing subscriptions and API keys by embedding stablecoin payments into web requests.",
@@ -180,11 +126,12 @@ export const articles: Title[] = [
     badge: "Pinned",
     meta: "12 min read",
   },
-   {
+  {
     id: "kelp",
+    kind: "article",
     title: "The Drift and Kelp DAO Hacks: What Went Wrong?",
     description:
-      "April 2026 marked a turning point for DeFi security. Within roughly three weeks, two major protocols, Drift and Kelp DAO, were hit by large-scale exploits, resulting in combined losses approaching half a billion dollars.",
+      "Within roughly three weeks, two major protocols — Drift and Kelp DAO — were hit by large-scale exploits, with combined losses approaching half a billion dollars.",
     image: "/kelp.webp",
     link: "https://medium.com/@africablockchainclub/the-breach-that-rocked-the-crypto-world-bybits-1-5-billion-heist-9a1b0d50ebd3",
     tags: ["Security", "Hack", "Exploit"],
@@ -192,17 +139,8 @@ export const articles: Title[] = [
     meta: "6 min read",
   },
   {
-    id: "aster",
-    title: "Aster: The Hyperliquid Killer?",
-    description:
-      "A comparison of Hyperliquid and Aster, two leading perp DEXs with contrasting approaches to speed, multi-chain liquidity, and the future of DeFi.",
-    image: "/aster.webp",
-    link: "https://medium.com/@africablockchainclub/aster-the-hyperliquid-killer-4904c3b832c3",
-    tags: ["DeFi", "DEX"],
-    meta: "16 min read",
-  },
-  {
     id: "ai-evolution",
+    kind: "article",
     title: "The Evolution of AI: From Prediction to Execution",
     description:
       "Tracing AI's journey from simple prediction to autonomous action — from pattern-matching models to agents with memory, planning, and goal-driven workflows.",
@@ -213,7 +151,19 @@ export const articles: Title[] = [
     meta: "18 min read",
   },
   {
+    id: "aster",
+    kind: "article",
+    title: "Aster: The Hyperliquid Killer?",
+    description:
+      "A comparison of Hyperliquid and Aster, two leading perp DEXs with contrasting approaches to speed, multi-chain liquidity, and the future of DeFi.",
+    image: "/aster.webp",
+    link: "https://medium.com/@africablockchainclub/aster-the-hyperliquid-killer-4904c3b832c3",
+    tags: ["DeFi", "DEX"],
+    meta: "16 min read",
+  },
+  {
     id: "flying-tulip",
+    kind: "article",
     title: "Flying Tulip: A Unified DeFi System",
     description:
       "Exploring a unified DeFi architecture where lending, trading, and derivatives operate within a single system, improving capital efficiency through composability.",
@@ -224,9 +174,10 @@ export const articles: Title[] = [
   },
   {
     id: "pendle",
+    kind: "article",
     title: "Pendle Finance: Redefining Yield in DeFi",
     description:
-      "How Pendle transforms yield-bearing assets by splitting them into Principal Tokens and Yield Tokens, enabling users to trade and hedge yield independently.",
+      "How Pendle transforms yield-bearing assets by splitting them into Principal Tokens and Yield Tokens, letting users trade and hedge yield independently.",
     image: "/pendle.webp",
     link: "https://medium.com/@africablockchainclub/pendle-finance-redefining-yield-in-defi-d02f9ea0492d",
     tags: ["DeFi", "Yield"],
@@ -234,6 +185,7 @@ export const articles: Title[] = [
   },
   {
     id: "web3-gaming",
+    kind: "article",
     title: "Unlocking Value in Web3 Gaming",
     description:
       "How Web3 gaming and GameFi give players true ownership of digital items through play-to-earn models and community-led decision-making.",
@@ -244,9 +196,10 @@ export const articles: Title[] = [
   },
   {
     id: "kaito",
+    kind: "article",
     title: "Kaito AI: Turning Crypto Knowledge into Earnings",
     description:
-      "A Web3 intelligence platform combining AI-driven search, real-time analytics, and tokenized incentives into a single seamless ecosystem built on Base.",
+      "A Web3 intelligence platform combining AI-driven search, real-time analytics, and tokenized incentives into a single ecosystem built on Base.",
     image: "/kaito.webp",
     link: "https://medium.com/@africablockchainclub/kaito-ai-turning-crypto-knowledge-into-earnings-493dc8cd1ba0",
     tags: ["AI", "Crypto"],
@@ -254,9 +207,10 @@ export const articles: Title[] = [
   },
   {
     id: "cex-dex",
+    kind: "article",
     title: "CEX or DEX? The FTX Collapse Disruption",
     description:
-      "The downfall of FTX exposed the vulnerabilities of centralized exchanges and highlighted the transparency and accountability of decentralized exchanges.",
+      "The downfall of FTX exposed the vulnerabilities of centralized exchanges and highlighted the transparency and accountability of decentralized ones.",
     image: "/Dex.webp",
     link: "https://medium.com/@africablockchainclub/cex-or-dex-the-ftx-collapse-disruption-f20a863f416a",
     tags: ["DeFi", "Security"],
@@ -264,24 +218,54 @@ export const articles: Title[] = [
   },
   {
     id: "bybit",
+    kind: "article",
     title: "The Breach That Rocked the Crypto World",
     description:
-      "On February 21st 2025, Bybit fell victim to a sophisticated cyberattack resulting in the theft of over 400,000 ETH — nearly $1.5 billion — raising critical security questions.",
+      "In February 2025 Bybit fell victim to a sophisticated attack resulting in the theft of over 400,000 ETH — nearly $1.5 billion — raising critical security questions.",
     image: "/bybit.webp",
     link: "https://medium.com/@africablockchainclub/the-breach-that-rocked-the-crypto-world-bybits-1-5-billion-heist-9a1b0d50ebd3",
     tags: ["Security", "Hack"],
     meta: "6 min read",
-  }
+  },
 ]
 
-export const rows = [
-  { title: "My Websites & Projects", items: projects },
-  { title: "Research & Articles", items: articles },
+export const catalog: Title[] = [...projects, ...articles]
+
+/** Derived from the catalog so the numbers cannot drift from the content. */
+export const stats = [
+  { value: String(projects.length), label: "Live products" },
+  { value: String(articles.length), label: "Published articles" },
+  { value: String(profile.skills.length), label: "Technologies" },
+]
+
+const byId = (id: string) => {
+  const found = catalog.find((item) => item.id === id)
+  if (!found) throw new Error(`Unknown catalog id: ${id}`)
+  return found
+}
+
+/** Billboard rotation — the work that should be seen first. */
+export const featuredItems: Title[] = [
+  "crypto-aggregator",
+  "abc-hub",
+  "companions-fintech",
+  "gatsheni-puissance",
+  "biohealthchain",
+  "charity-nft",
+].map(byId)
+
+export type Row = { id: string; title: string; items: Title[] }
+
+export const rows: Row[] = [
+  { id: "projects", title: "Websites & Products", items: projects },
+  { id: "articles", title: "Research & Writing", items: articles },
   {
-    title: "Trending Now",
-    items: [articles[0], articles[1], articles[2], projects[0], projects[1]],
+    id: "trending",
+    title: "Trending This Month",
+    items: ["x402", "kelp", "ai-evolution", "crypto-aggregator", "abc-hub"].map(byId),
   },
   {
+    id: "deep-dives",
     title: "Security & DeFi Deep Dives",
     items: articles.filter((a) => a.tags.some((t) => ["Security", "DeFi"].includes(t))),
   },

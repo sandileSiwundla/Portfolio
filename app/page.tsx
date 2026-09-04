@@ -9,11 +9,9 @@ export default function Page() {
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
-      <div id="projects" className="relative z-10 -mt-20 pb-6">
-        {rows.map((row, i) => (
-          <div key={row.title} id={i === 1 ? "articles" : undefined}>
-            <ContentRow title={row.title} items={row.items} />
-          </div>
+      <div className="relative z-10 pb-8">
+        {rows.map((row) => (
+          <ContentRow key={row.id} id={row.id} title={row.title} items={row.items} />
         ))}
       </div>
       <AboutFooter />
