@@ -1,7 +1,8 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { ContentRow } from "@/components/content-row"
-import { AboutFooter } from "@/components/about-footer"
+import { About } from "@/components/about"
+import { SiteFooter } from "@/components/site-footer"
 import { rows } from "@/lib/content"
 
 export default function Page() {
@@ -14,7 +15,8 @@ export default function Page() {
           <ContentRow key={row.id} id={row.id} title={row.title} items={row.items} />
         ))}
       </div>
-      <AboutFooter />
+      <About />
+      <SiteFooter />
     </main>
   )
 }

@@ -14,21 +14,11 @@ export type Title = {
 
 export const profile = {
   name: "Sandile Siwundla",
-  role: "Software Developer & Blockchain Researcher",
+  role: "Software Developer & Cloud Technologist",
+  location: "Johannesburg, South Africa",
+  portrait: "/sandile.jpeg",
   tagline: "Full-stack engineer building for Africa's tech ecosystem.",
-  bio: "Full-stack developer and WeThinkCode_ graduate building impactful solutions for Africa's tech ecosystem. Researcher at the Africa Blockchain Club, AWS cloud technologist, and multiple hackathon winner.",
-  skills: [
-    "TypeScript",
-    "React",
-    "Next.js",
-    "Node.js",
-    "Solidity",
-    "Python",
-    "Tailwind CSS",
-    "PostgreSQL",
-    "AWS",
-    "IPFS",
-  ],
+  bio: "WeThinkCode_ graduate working across full-stack development, AWS cloud, and blockchain research. I build things that ship — six live products, ten published research pieces — and I care most about work that moves Africa's tech ecosystem forward. Currently a technical researcher at the Africa Blockchain Club.",
   links: {
     github: "https://github.com/sandileSiwundla",
     linkedin: "https://www.linkedin.com/in/sandile-siwundla-51b0b5307/",
@@ -36,6 +26,101 @@ export const profile = {
     email: "mailto:sandilemsiwundla@gmail.com",
   },
 }
+
+/**
+ * Optional pull-quote. Set `text` to render the block; leave it null to hide
+ * the whole thing — nothing here is invented on your behalf.
+ */
+export const quote: { text: string; attribution?: string } | null = null
+
+export type Role = {
+  title: string
+  org: string
+  period: string
+  kind: "work" | "education"
+  points: string[]
+}
+
+export const experience: Role[] = [
+  {
+    title: "Technical Researcher",
+    org: "Africa Blockchain Club",
+    period: "2024 — Present",
+    kind: "work",
+    points: [
+      "Researches blockchain ecosystems, DeFi protocols, and Web3 adoption across Africa.",
+      "Produces technical reports representing the Johannesburg blockchain community.",
+    ],
+  },
+  {
+    title: "Bootcamp Assistant",
+    org: "WeThinkCode_",
+    period: "2024 — 2025",
+    kind: "work",
+    points: [
+      "Selected post-graduation to mentor the following cohort.",
+      "Facilitated peer learning, code review, and workshop delivery alongside instructors.",
+    ],
+  },
+  {
+    title: "National Certificate: IT (Systems Development)",
+    org: "WeThinkCode_ · NQF Level 5",
+    period: "2023 — 2024",
+    kind: "education",
+    points: [
+      "16-month full-time, project-based programme in software engineering and algorithms.",
+    ],
+  },
+]
+
+export type Achievement = { placement: string; event: string; year?: string; top?: boolean }
+
+export const achievements: Achievement[] = [
+  { placement: "1st Place", event: "AWS DeepRacer — WeThinkCode_ Hackathon", year: "2024", top: true },
+  { placement: "Runner-up", event: "AWS Summit DeepRacer Hackathon", year: "2024" },
+  { placement: "Runner-up", event: "WeThinkCode_ Koedr Open Day Hackathon" },
+  { placement: "Honorary Placement", event: "Celo Hackathon", year: "2024" },
+]
+
+export const skillGroups: { label: string; items: string[] }[] = [
+  { label: "Languages", items: ["Python", "Java", "JavaScript", "TypeScript", "Solidity", "HTML", "CSS"] },
+  { label: "Frameworks", items: ["Next.js", "React", "Tailwind CSS", "SCSS"] },
+  { label: "Cloud & DevOps", items: ["AWS EC2", "S3", "RDS", "Lambda", "Networking", "Databases"] },
+  { label: "AI & ML", items: ["ML Foundations", "Generative AI", "Amazon Q Developer"] },
+  { label: "Blockchain", items: ["Solidity contracts", "Web3 research", "DeFi"] },
+  { label: "Version Control", items: ["Git / GitHub"] },
+]
+
+export const certifications: { issuer: string; items: string[] }[] = [
+  {
+    issuer: "AWS Educate",
+    items: [
+      "Cloud 101",
+      "AWS Management Console",
+      "Networking",
+      "Databases",
+      "Storage",
+      "Explore Cloud Computing",
+      "Machine Learning Foundations",
+    ],
+  },
+  {
+    issuer: "Amazon Development Centre SA",
+    items: [
+      "Introduction to Generative AI",
+      "Amazon Q Developer",
+      "Cloud Support Associate",
+      "Working with User Data",
+    ],
+  },
+  { issuer: "Microsoft AI", items: ["AI Fluency", "Explore Responsible AI"] },
+]
+
+export const languages = [
+  { name: "English", level: "Fluent" },
+  { name: "Zulu", level: "Fluent" },
+  { name: "Xhosa", level: "Proficient" },
+]
 
 export const projects: Title[] = [
   {
@@ -231,11 +316,15 @@ export const articles: Title[] = [
 
 export const catalog: Title[] = [...projects, ...articles]
 
-/** Derived from the catalog so the numbers cannot drift from the content. */
+/** Derived, so the numbers cannot drift from the content that backs them. */
 export const stats = [
   { value: String(projects.length), label: "Live products" },
   { value: String(articles.length), label: "Published articles" },
-  { value: String(profile.skills.length), label: "Technologies" },
+  { value: String(achievements.length), label: "Hackathon placements" },
+  {
+    value: String(certifications.reduce((n, c) => n + c.items.length, 0)),
+    label: "Certifications",
+  },
 ]
 
 const byId = (id: string) => {
