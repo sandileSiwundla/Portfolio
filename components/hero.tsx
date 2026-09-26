@@ -4,16 +4,18 @@ import { useCallback, useEffect, useState } from "react"
 import Image from "next/image"
 import { ArrowUpRight, ChevronLeft, ChevronRight, Info, Pause, Play } from "lucide-react"
 import { featuredItems } from "@/lib/content"
+import { icons } from "@/lib/content"
 import { BrowserFrame } from "@/components/browser-frame"
 
-const SLIDE_MS = 7000
+const SLIDE_MS = 1000
 // A slide carrying a screencast holds long enough to let the clip run once.
-const VIDEO_SLIDE_MS = 11000
+const VIDEO_SLIDE_MS = 1000
 
 export function Hero() {
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
   const current = featuredItems[index]
+  
   const slideMs = current.video ? VIDEO_SLIDE_MS : SLIDE_MS
 
   const goTo = useCallback((next: number) => {
@@ -102,15 +104,19 @@ export function Hero() {
               {current.description}
             </p>
 
-            <ul className="mt-6 flex flex-wrap gap-2">
+            <ul className="mt-6 flex flex-wrap gap-2 ">
               {current.tags.map((tag) => (
+                
                 <li
-                  key={tag}
-                  className="rounded-full border border-white/12 bg-white/[0.06] px-3 py-1 text-xs font-medium text-foreground/80 backdrop-blur-sm"
+                  key={tag} 
+                  className="rounded-full border border-white/12 bg-white/[0.06] px-3 py-1 text-xs font-medium text-foreground/80 backdrop-blur-sm inline-flex gap-2"
                 >
+                  <img src={icons[tag]} alt="icon" className="rounded-full w-4 h-4"/>
+
                   {tag}
                 </li>
               ))}
+
             </ul>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">

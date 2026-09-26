@@ -10,9 +10,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Sandile Siwundla — Portfolio',
+  title: 'Sandile Siwundla Portfolio',
   description:
-    'A Netflix-style showcase of Sandile Siwundla\'s websites, projects, and blockchain research articles.',
+    'Sandile Siwundla\'s websites, projects, and blockchain research articles.',
   generator: 'Next.js ',
   icons: {
     icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],

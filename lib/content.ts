@@ -3,7 +3,6 @@ export type Title = {
   title: string
   description: string
   image: string
-  /** Optional ambient screencast; falls back to `image` when absent. */
   video?: string
   link: string
   tags: string[]
@@ -12,11 +11,48 @@ export type Title = {
   kind: "project" | "article"
 }
 
+export type Icons = {
+    icons: Record<string, string>
+}
+
+export const icons: Record<string, string> = {
+  TypeScript: "/icons/typescript.webp",
+  Tailwind: "/icons/tailwind.webp",
+  React: "/icons/react.webp",
+  "Next.js": "/icons/nextjs.webp",
+  Recharts: "/icons/Recharts.webp",
+  MongoDB: "/icons/mongodb.webp",
+  Upstash: "/icons/upstash.webp",
+  Coinmarketcap :"/icons/coinmarketcap.webp",
+
+  "REST API": "/icons/api.webp",
+  Vite: "/icons/vite.webp",
+  Vercel: "/icons/vercel.webp",
+  Railway: "/icons/railway.webp",
+  Ethereum: "/icons/ethereum.webp",
+  "ZK-Proofs": "/icons/zk.webp",
+  "ZeroDev AA": "/icons/zerodev.webp",
+  Scroll: "/icons/scroll.webp",
+  "ERC-721": "/icons/erc.webp",
+  AI: "/icons/upstash.webp",
+  Ozow: "/icons/ozow.webp",
+  DeFi: "/icons/upstash.webp",
+  Security: "/icons/upstash.webp",
+  Hack: "/icons/upstash.webp",
+  Exploit: "/icons/upstash.webp",
+  Agents: "/icons/upstash.webp",
+  DEX: "/icons/upstash.webp",
+  Yield: "/icons/upstash.webp",
+  Web3: "/icons/upstash.webp",
+  Gaming: "/icons/upstash.webp",
+  Crypto: "/icons/upstash.webp",
+}
+
 export const profile = {
   name: "Sandile Siwundla",
   role: "Software Developer & Cloud Technologist",
   location: "Johannesburg, South Africa",
-  portrait: "/sandile.jpeg",
+  portrait: "/sandile.webp",
   tagline: "Full-stack engineer building for Africa's tech ecosystem.",
   bio: "WeThinkCode_ graduate working across full-stack development, AWS cloud, and blockchain research. I build things that ship — six live products, ten published research pieces — and I care most about work that moves Africa's tech ecosystem forward. Currently a technical researcher at the Africa Blockchain Club.",
   links: {
@@ -131,7 +167,7 @@ export const projects: Title[] = [
       "A cryptocurrency research platform with real-time market data, advanced analytics, and side-by-side token comparison tools.",
     image: "/crypto.png",
     link: "https://crypto-aggregator-virid.vercel.app",
-    tags: ["Next.js", "TypeScript", "Tailwind", "Recharts"],
+    tags: ["Coinmarketcap", "TypeScript", "Tailwind", "Recharts"],
     badge: "Live",
     meta: "Research Platform",
   },
@@ -168,7 +204,7 @@ export const projects: Title[] = [
       "A luxury e-commerce platform with a dual interface: a seamless storefront for customers, and an admin console that lets the owner edit products, inventory, and site content in real time without touching code.",
     image: "/gatsheni.png",
     link: "https://gatsheni-puissance.vercel.app/",
-    tags: ["Next.js", "TypeScript", "Stripe"],
+    tags: ["Upstash", "Next.js", "TypeScript", "Ozow"],
     badge: "Live",
     meta: "E-commerce",
   },
