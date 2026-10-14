@@ -7,9 +7,9 @@ import { featuredItems } from "@/lib/content"
 import { icons } from "@/lib/content"
 import { BrowserFrame } from "@/components/browser-frame"
 
-const SLIDE_MS = 1000
+const SLIDE_MS = 12000
 // A slide carrying a screencast holds long enough to let the clip run once.
-const VIDEO_SLIDE_MS = 1000
+const VIDEO_SLIDE_MS = 12000
 
 export function Hero() {
   const [index, setIndex] = useState(0)
